@@ -1,9 +1,13 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-
+import ProfileRejectionContainer from '../Containers/ProfileRejectionsContainer'
 class Profile extends React.Component {
   render () {
-    return <h1>Profile</h1>;
+    return (
+      <React.Fragment>
+    <h1>Profile</h1>
+    <ProfileRejectionContainer/>
+    </React.Fragment>
+  )
   }
 }
 

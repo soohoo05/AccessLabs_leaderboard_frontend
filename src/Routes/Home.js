@@ -1,9 +1,13 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-
+import LeaderBoardContainer from '../Containers/LeaderBoardContainer'
 class Home extends React.Component {
   render () {
-    return <h1>Home</h1>;
+    return (
+      <React.Fragment>
+      <h1>Home</h1>
+      <LeaderBoardContainer/>
+      </React.Fragment>
+    );
   }
 }
 
