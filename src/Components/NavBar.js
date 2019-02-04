@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import { connect } from "react-redux";
 
 class NavBar extends React.Component {
-  render () {
-    return <h1>NavBar</h1>
+  render() {
+    return <h1>NavBar</h1>;
   }
 }
-
-export default NavBar;
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
+export default connect(mapStateToProps)(NavBar);
