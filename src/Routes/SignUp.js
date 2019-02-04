@@ -15,7 +15,7 @@ class SignUp extends React.Component {
     cohort_name:"---",
     next:false,
     errors:"",
-    img_url:"https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=2ahUKEwjumZzW1KLgAhUJT98KHR8jCX0QjRx6BAgBEAU&url=https%3A%2F%2Fbrinm.org%2Fabout%2Fstaff%2Ffacebook-default-no-profile-pic%2F&psig=AOvVaw0DvojyAtREurgBvzvlUEDh&ust=1549389722022706"
+    avatar:"https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=2ahUKEwjumZzW1KLgAhUJT98KHR8jCX0QjRx6BAgBEAU&url=https%3A%2F%2Fbrinm.org%2Fabout%2Fstaff%2Ffacebook-default-no-profile-pic%2F&psig=AOvVaw0DvojyAtREurgBvzvlUEDh&ust=1549389722022706"
   }
   changeHandler = (e) => {
     this.setState({
@@ -66,8 +66,7 @@ class SignUp extends React.Component {
      },
      (error, result) => {
        if (result.info.secure_url) {
-         console.log(result.info.secure_url)
-         this.setState({ img_url: result.info.secure_url })
+         this.setState({ avatar: result.info.secure_url })
        }
        else{
          debugger
