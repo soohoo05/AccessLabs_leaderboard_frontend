@@ -73,9 +73,7 @@ class SignUp extends React.Component {
       (error, result) => {
         if (result.info.secure_url) {
           this.setState({ avatar: result.info.secure_url });
-        } else {
-          debugger;
-        }
+        } 
       }
     );
   };
