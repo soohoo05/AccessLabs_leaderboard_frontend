@@ -1,0 +1,9 @@
+.avatarOnProfile{
+  height:300px;
+  width:300px;
+
+}
+.ProfileRejectionContainer{
+  background-color: grey;
+  overflow: scroll;
+}
