@@ -1,12 +1,15 @@
-import React from 'react'
-import Rejection from '../Components/Rejection'
+import React from "react";
+import Rejection from "../Components/Rejection";
 class ProfileRejectionContainer extends React.Component {
-  render () {
-    return (
-      <React.Fragment>
-      <h1>PRC</h1>
-      <Rejection />
-      </React.Fragment>)
+  render() {
+    let rejections = this.props.rejections.map(rejection => (
+      <Rejection
+        aRejection={rejection}
+        key={rejection.id}
+        OwnProfile={this.props.OwnProfile}
+      />
+    ));
+    return <div className="ProfileRejectionContainer">{rejections}</div>;
   }
 }
 
