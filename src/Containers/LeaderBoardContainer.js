@@ -1,5 +1,7 @@
 import React from 'react'
 import LeaderBoardUser from '../Components/LeaderBoardUser'
+import * as actions from '../Actions/LeaderboardActions'
+import { connect } from "react-redux";
 class LeaderBoardContainer extends React.Component {
 
     state = {
@@ -7,16 +9,19 @@ class LeaderBoardContainer extends React.Component {
     }
 
     componentDidMount(){
-        fetch('http://localhost:3000/api/v1/users')
-        .then(resp => resp.json())
-        .then(users => this.setState({users}))
+        this.props.loadLeaderboard()
+        // fetch('http://localhost:3000/api/v1/users')
+        // .then(resp => resp.json())
+        // .then(users => this.setState({users}))
     }
 
     renderLeaderboardRow = () =>{
-        return this.state.users.map(user => <LeaderBoardUser user = {user}/>)
+        let i = 1
+        return this.state.users.map(user => <LeaderBoardUser rank = {i++} user = {user}/>)
     }
+
   render () {
-      console.log(this.state)
+      console.log(this.props)
     return (
       <React.Fragment>
 
@@ -25,6 +30,7 @@ class LeaderBoardContainer extends React.Component {
                 <tr>
                     <th>Rank</th>
                     <th>Username</th>
+                    <th>Cohort</th>
                     <th>Points</th>
                 </tr>
             </thead>
@@ -39,4 +45,17 @@ class LeaderBoardContainer extends React.Component {
   }
 }
 
-export default LeaderBoardContainer;
+const mapStateToProps = state => {
+  return {
+    user: state.currentUser,
+    leaderboard: state.leaderboard
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    loadLeaderboard: () => dispatch(actions.loadLeaderboard())
+  };
+};
+
+export default connect (null, mapDispatchToProps)(LeaderBoardContainer);
