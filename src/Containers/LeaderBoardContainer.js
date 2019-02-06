@@ -19,7 +19,6 @@ class LeaderBoardContainer extends React.Component {
         let i = 1
         return this.state.users.map(user => <LeaderBoardUser rank = {i++} user = {user}/>)
     }
-
   render () {
       console.log(this.props)
     return (
@@ -48,7 +47,7 @@ class LeaderBoardContainer extends React.Component {
 const mapStateToProps = state => {
   return {
     user: state.currentUser,
-    leaderboard: state.leaderboard
+    leaderboard: state.leaderboard,
   };
 };
 
