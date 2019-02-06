@@ -4,17 +4,25 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 import { CloudinaryContext } from "cloudinary-react";
+import Modal from 'react-modal';
+import { makeRejection } from "../Actions/UserActions";
 
 class Profile extends React.Component {
   state = {
     display: false,
-    user: ""
+    user: "",
+    ModalIsOpen:false,
+    company:"",
+    stage_of_rejection:"",
+    rejection_url:"",
+    errors:"",
+    id:""
   };
   componentDidMount() {
+    console.log("cdm")
     let theUsername = this.props.history.location.pathname.split("/")[2];
     let token = localStorage.getItem("token");
-    axios
-      .get("http://localhost:3000/api/v1/profile", {
+    axios.get("http://localhost:3000/api/v1/profile", {
         headers: {
           Authorization: token
         },
@@ -24,7 +32,8 @@ class Profile extends React.Component {
       })
       .then(res => {
         this.setState({
-          user: res.data.user
+          user: res.data.user,
+          id:res.data.user.id
         });
       });
   }
@@ -37,7 +46,10 @@ class Profile extends React.Component {
       },
       (error, result) => {
         if (result.info.secure_url) {
-          //work on adding a rejection
+        this.setState({
+          rejection_url:result.info.secure_url,
+          modalIsOpen:true
+        })
         }
       }
     );
@@ -56,7 +68,30 @@ class Profile extends React.Component {
       </CloudinaryContext>
     );
   };
+  changeHandler = (e) => {
+    this.setState({
+      [e.target.name]:e.target.value
+    })
+  }
+  submitHandler = (e) => {
+    e.preventDefault()
+    if(this.state.company.length===0 || this.state.stage_of_rejection.length===0){
+      this.setState({
+        errors:"Fields cannot be left blank"
+      })
+    }
+    else{
+      let copy={...this.state}
+      delete copy["errors"]
+      delete copy["display"]
+      delete copy["user"]
+      delete copy["modalIsOpen"]
+      this.props.createRejection(copy)
+      this.setState({modalIsOpen:false})
+    }
+  }
   renderProfile = () => {
+    console.log(this.props)
     let OwnProfile =
       this.props.history.location.pathname ===
       `/User/${this.props.user.username}`;
@@ -74,6 +109,15 @@ class Profile extends React.Component {
         <h1>Email: {this.state.user.email}</h1>
         <h1>Cohort Name: {this.state.user.cohort_name}</h1>
         {OwnProfile ? this.renderCloudinary() : null}
+        <Modal  className="rejectionModal" isOpen={this.state.modalIsOpen}>
+          <form className="rejectionForm" onSubmit={(e)=>this.submitHandler(e)}>
+            {this.state.errors ? <h1>{this.state.errors}</h1> :null}
+            <input type="text" placeholder="Company Name" name="company" onChange={(e)=>this.changeHandler(e)} value={this.state.company}/>
+            <input type="text" placeholder="Stage of rejection" name="stage_of_rejection" onChange={(e)=>this.changeHandler(e)} value={this.state.stage_of_rejection}/>
+            <button>Submit</button>
+          </form>
+          <button onClick={()=>this.setState({modalIsOpen:false})}>Cancel</button>
+        </Modal>
         <div className="rejectionsDiv">
           <h1>Rejections</h1>
           {this.state.user.rejections ? (
@@ -95,4 +139,11 @@ const mapStateToProps = state => {
     user: state.user
   };
 };
-export default withRouter(connect(mapStateToProps)(Profile));
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createRejection : (rejectionObj) => {
+      dispatch(makeRejection(rejectionObj))
+    }
+  }
+}
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Profile));

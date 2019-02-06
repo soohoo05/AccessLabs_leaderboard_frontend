@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { destroyRejection } from "../Actions/UserActions";
 
 class Rejection extends React.Component {
   render() {
@@ -10,10 +12,16 @@ class Rejection extends React.Component {
         <button onClick={() => window.open(aRejection.rejection_url)}>
           See Rejection
         </button>
-        {this.props.OwnProfile ? <button>Delete Rejection</button> : null}
+        {this.props.OwnProfile ? <button onClick={()=>this.props.deleteRejection(aRejection)}>Delete Rejection</button> : null}
       </div>
     );
   }
 }
-
-export default Rejection;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteRejection : (rejectionObj) => {
+      dispatch(destroyRejection(rejectionObj))
+    }
+  }
+}
+export default connect(null,mapDispatchToProps)(Rejection);

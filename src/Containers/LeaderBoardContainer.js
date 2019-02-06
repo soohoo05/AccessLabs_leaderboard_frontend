@@ -10,14 +10,14 @@ class LeaderBoardContainer extends React.Component {
 
     componentDidMount(){
         this.props.loadLeaderboard()
-        // fetch('http://localhost:3000/api/v1/users')
-        // .then(resp => resp.json())
-        // .then(users => this.setState({users}))
+        fetch('http://localhost:3000/api/v1/users')
+        .then(resp => resp.json())
+        .then(users => this.setState({users}))
     }
 
     renderLeaderboardRow = () =>{
         let i = 1
-        return this.state.users.map(user => <LeaderBoardUser rank = {i++} user = {user}/>)
+        return this.state.users.map(user => <LeaderBoardUser rank = {i++} user = {user} key={user.id}/>)
     }
   render () {
       console.log(this.props)
@@ -31,6 +31,7 @@ class LeaderBoardContainer extends React.Component {
                     <th>Username</th>
                     <th>Cohort</th>
                     <th>Points</th>
+                    <th>Profile</th>
                 </tr>
             </thead>
             <tbody>

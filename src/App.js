@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, withRouter} from "react-router-dom";
 import NavBar from "./Components/NavBar";
 import Home from "./Routes/Home";
 import Profile from "./Routes/Profile";
@@ -33,7 +33,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/SignIn" component={SignIn} />
           <Route exact path="/SignUp" component={SignUp} />
-          <Route exact path="/User/:Username" component={Profile} />
+          <Route exact path="/user/:Username" component={Profile} />
         </Switch>
       </React.Fragment>
     );
@@ -46,7 +46,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
+export default withRouter(connect(
   null,
   mapDispatchToProps
-)(App);
+)(App));
