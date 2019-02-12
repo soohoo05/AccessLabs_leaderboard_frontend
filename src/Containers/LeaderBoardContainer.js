@@ -2,6 +2,26 @@ import React from 'react'
 import LeaderBoardUser from '../Components/LeaderBoardUser'
 import * as actions from '../Actions/LeaderboardActions'
 import { connect } from "react-redux";
+import { withStyles } from '@material-ui/core/styles';
+
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+
+const CustomTableCell = withStyles(theme => ({
+  head: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  body: {
+    fontSize: 14,
+  },
+}))(TableCell);
+
+
 class LeaderBoardContainer extends React.Component {
 
     state = {
@@ -22,25 +42,25 @@ class LeaderBoardContainer extends React.Component {
   render () {
       console.log(this.props)
     return (
-      <React.Fragment>
+      <Paper>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Username</th>
-                    <th>Cohort</th>
-                    <th>Points</th>
-                    <th>Profile</th>
-                </tr>
-            </thead>
-            <tbody>
+        <Table>
+            <TableHead>
+                <TableRow>
+                    <CustomTableCell>Rank</CustomTableCell>
+                    <CustomTableCell>Username</CustomTableCell>
+                    <CustomTableCell>Cohort</CustomTableCell>
+                    <CustomTableCell>Points</CustomTableCell>
+                    <CustomTableCell>Profile</CustomTableCell>
+                </TableRow>
+            </TableHead>
+            <TableBody>
                 {this.renderLeaderboardRow()}
-            </tbody>
-        </table>
+            </TableBody>
+        </Table>
 
 
-      </React.Fragment>
+      </Paper>
     );
   }
 }

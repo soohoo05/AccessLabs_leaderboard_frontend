@@ -33,7 +33,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/SignIn" component={SignIn} />
           <Route exact path="/SignUp" component={SignUp} />
-          <Route exact path="/user/:Username" component={Profile} />
+          <Route exact path="/user/:username" component={Profile} />
         </Switch>
       </React.Fragment>
     );

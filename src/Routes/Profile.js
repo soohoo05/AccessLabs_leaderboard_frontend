@@ -16,10 +16,11 @@ class Profile extends React.Component {
     stage_of_rejection:"",
     rejection_url:"",
     errors:"",
-    id:""
+    id:"",
+
   };
   componentDidMount() {
-    console.log("cdm")
+    console.log(this.props)
     let theUsername = this.props.history.location.pathname.split("/")[2];
     let token = localStorage.getItem("token");
     axios.get("http://localhost:3000/api/v1/profile", {
@@ -31,12 +32,24 @@ class Profile extends React.Component {
         }
       })
       .then(res => {
+          debugger
         this.setState({
           user: res.data.user,
-          id:res.data.user.id
+          id:res.data.user.id,
+          rejectionsArr:res.data.user.rejections
         });
       });
   }
+  shouldComponentUpdate(prevProps) {
+      console.log(prevProps)
+      if(this.props.user === prevProps.user){
+
+          return true
+      }
+      else{
+          return false
+      }
+}
   imageSubmit = () => {
     var myUploadWidget;
     myUploadWidget = window.cloudinary.openUploadWidget(
@@ -74,6 +87,7 @@ class Profile extends React.Component {
     })
   }
   submitHandler = (e) => {
+      debugger
     e.preventDefault()
     if(this.state.company.length===0 || this.state.stage_of_rejection.length===0){
       this.setState({
@@ -91,7 +105,6 @@ class Profile extends React.Component {
     }
   }
   renderProfile = () => {
-    console.log(this.props)
     let OwnProfile =
       this.props.history.location.pathname ===
       `/User/${this.props.user.username}`;
@@ -131,6 +144,7 @@ class Profile extends React.Component {
     );
   };
   render() {
+      console.log(this.state)
     return <div>{this.state.user ? this.renderProfile() : null}</div>;
   }
 }
