@@ -12,6 +12,9 @@ class FirstSignUpForm extends React.Component {
           name="username"
           onChange={e => changeHandler(e)}
         />
+      <br/>
+        <br/>
+
         <input
           type="text"
           placeholder="Email"
@@ -19,6 +22,9 @@ class FirstSignUpForm extends React.Component {
           name="email"
           onChange={e => changeHandler(e)}
         />
+        <br/>
+      <br/>
+
         <input
           type="password"
           placeholder="Password"
@@ -26,6 +32,9 @@ class FirstSignUpForm extends React.Component {
           name="password"
           onChange={e => changeHandler(e)}
         />
+      <br/>
+        <br/>
+
         <input
           type="password"
           placeholder="Password Confirmation"
@@ -33,6 +42,8 @@ class FirstSignUpForm extends React.Component {
           name="passwordConfirmation"
           onChange={e => changeHandler(e)}
         />
+        <br/>
+          <br/>
         <button onClick={() => nextHandler()}>Next</button>
       </React.Fragment>
     );

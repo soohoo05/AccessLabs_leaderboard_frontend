@@ -73,12 +73,13 @@ class SignUp extends React.Component {
       (error, result) => {
         if (result.info.secure_url) {
           this.setState({ avatar: result.info.secure_url });
-        } 
+        }
       }
     );
   };
   render() {
     return (
+      <div className="SignUp">
       <div className="CredentialDiv">
         <h1>Sign Up</h1>
         {this.state.errors ? <h1>{this.state.errors}</h1> : null}
@@ -97,8 +98,10 @@ class SignUp extends React.Component {
             state={this.state}
             submitHandler={this.submitHandler}
           />
+
         ) : null}
       </div>
+    </div>
     );
   }
 }
