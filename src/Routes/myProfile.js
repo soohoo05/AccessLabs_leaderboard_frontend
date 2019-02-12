@@ -34,7 +34,6 @@ class Profile extends React.Component {
         }
       })
       .then(res => {
-        console.log(res.data.user)
         this.setState({
           user: res.data.user,
           id:res.data.user.id
@@ -110,8 +109,16 @@ class Profile extends React.Component {
         <h1>Username: {this.state.user.username}</h1>
         <h1>Email: {this.state.user.email}</h1>
         <h1>Cohort Name: {this.state.user.cohort_name}</h1>
-
-
+        {this.renderCloudinary()}
+        <Modal  className="rejectionModal" isOpen={this.state.modalIsOpen}>
+          <form className="rejectionForm" onSubmit={(e)=>this.submitHandler(e)}>
+            {this.state.errors ? <h1>{this.state.errors}</h1> :null}
+            <input type="text" placeholder="Company Name" name="company" onChange={(e)=>this.changeHandler(e)} value={this.state.company}/>
+            <input type="text" placeholder="Stage of rejection" name="stage_of_rejection" onChange={(e)=>this.changeHandler(e)} value={this.state.stage_of_rejection}/>
+            <button>Submit</button>
+          </form>
+          <button onClick={()=>this.setState({modalIsOpen:false})}>Cancel</button>
+        </Modal>
         <div className="rejectionsDiv">
           <h1>Rejections</h1>
           {this.state.user.rejections ? (

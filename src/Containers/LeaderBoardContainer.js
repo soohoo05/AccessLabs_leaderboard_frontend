@@ -20,7 +20,6 @@ class LeaderBoardContainer extends React.Component {
         return this.state.users.map(user => <LeaderBoardUser rank = {i++} user = {user} key={user.id}/>)
     }
   render () {
-      console.log(this.props)
     return (
       <React.Fragment>
 
