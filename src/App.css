@@ -19,3 +19,20 @@
 }
 .rejectionForm{
 }
+.NavBar{
+  display: inline-flex;
+  background-color: #1eb4e4;
+  width: 100vw;
+}
+.NavDiv{
+  height: 5vh;
+  width:10vw;
+  background-color: #1eb4e4;
+  text-align: center;
+border-style: solid;
+line-height: 5vh;
+}
+.NavLog{
+  position: absolute;
+  left:89.5%
+}

@@ -7,6 +7,7 @@ class ProfileRejectionContainer extends React.Component {
         aRejection={rejection}
         key={rejection.id}
         OwnProfile={this.props.OwnProfile}
+        reRender={this.props.reRender}
       />
     ));
     return <div className="ProfileRejectionContainer">{rejections}</div>;

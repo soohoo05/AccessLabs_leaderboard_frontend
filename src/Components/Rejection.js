@@ -3,6 +3,10 @@ import { connect } from "react-redux";
 import { destroyRejection } from "../Actions/UserActions";
 
 class Rejection extends React.Component {
+  deleteRej = () => {
+    this.props.deleteRejection(this.props.aRejection)
+    this.props.reRender()
+  }
   render() {
     let { aRejection } = this.props;
     return (
@@ -12,7 +16,7 @@ class Rejection extends React.Component {
         <button onClick={() => window.open(aRejection.rejection_url)}>
           See Rejection
         </button>
-        {this.props.OwnProfile ? <button onClick={()=>this.props.deleteRejection(aRejection)}>Delete Rejection</button> : null}
+        {this.props.OwnProfile ? <button onClick={()=>this.deleteRej()}>Delete Rejection</button> : null}
       </div>
     );
   }

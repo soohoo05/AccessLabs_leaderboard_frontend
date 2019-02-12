@@ -19,7 +19,10 @@ class Profile extends React.Component {
     id:""
   };
   componentDidMount() {
-    console.log("cdm")
+    this.getProfile()
+  }
+  getProfile = () =>{
+    console.log("rerenmdering")
     let theUsername = this.props.history.location.pathname.split("/")[2];
     let token = localStorage.getItem("token");
     axios.get("http://localhost:3000/api/v1/profile", {
@@ -31,11 +34,12 @@ class Profile extends React.Component {
         }
       })
       .then(res => {
+        console.log(res.data.user)
         this.setState({
           user: res.data.user,
           id:res.data.user.id
         });
-      });
+            })
   }
   imageSubmit = () => {
     var myUploadWidget;
@@ -87,11 +91,11 @@ class Profile extends React.Component {
       delete copy["user"]
       delete copy["modalIsOpen"]
       this.props.createRejection(copy)
+      this.getProfile()
       this.setState({modalIsOpen:false})
     }
   }
   renderProfile = () => {
-    console.log(this.props)
     let OwnProfile =
       this.props.history.location.pathname ===
       `/User/${this.props.user.username}`;
@@ -124,6 +128,7 @@ class Profile extends React.Component {
             <ProfileRejectionContainer
               rejections={this.state.user.rejections}
               OwnProfile={OwnProfile}
+              reRender={this.getProfile}
             />
           ) : null}
         </div>
@@ -131,7 +136,7 @@ class Profile extends React.Component {
     );
   };
   render() {
-    return <div>{this.state.user ? this.renderProfile() : null}</div>;
+    return <div>{ this.renderProfile()}</div>;
   }
 }
 const mapStateToProps = state => {
