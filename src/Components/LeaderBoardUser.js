@@ -2,6 +2,20 @@ import React from 'react'
 import { withRouter, Link} from "react-router-dom";
 import { connect } from "react-redux";
 
+import TableCell from '@material-ui/core/TableCell';
+import { withStyles } from '@material-ui/core/styles';
+
+const CustomTableCell = withStyles(theme => ({
+  head: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  body: {
+    fontSize: 14,
+  },
+}))(TableCell);
+
+
 class LeaderBoardUser extends React.Component {
   changeHistory = () => {
     let OwnProfile =
@@ -16,11 +30,11 @@ class LeaderBoardUser extends React.Component {
   }
   render () {
     return <tr>
-                <td>{this.props.rank}</td>
-                <td>{this.props.user.username}</td>
-                <td>{this.props.user.cohort_name}</td>
-                <td>{this.props.user.rejections.length}</td>
-                <td><button onClick={()=>this.changeHistory()}>Profile</button></td>
+                <CustomTableCell align="left">{this.props.rank}</CustomTableCell>
+                <CustomTableCell align="left">{this.props.user.username}</CustomTableCell>
+                <CustomTableCell align="left">{this.props.user.cohort_name}</CustomTableCell>
+                <CustomTableCell align="left">{this.props.user.rejections.length}</CustomTableCell>
+                <CustomTableCell align="left"><button onClick={()=>this.changeHistory()}>Profile</button></CustomTableCell>
             </tr>
       }
 }
