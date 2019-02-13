@@ -45,71 +45,8 @@ class Profile extends React.Component {
         });
             })
   }
-  shouldComponentUpdate(prevProps) {
-      console.log(prevProps)
-      if(this.props.user === prevProps.user){
 
-          return true
-      }
-      else{
-          return false
-      }
-}
-  imageSubmit = () => {
-    var myUploadWidget;
-    myUploadWidget = window.cloudinary.openUploadWidget(
-      {
-        cloudName: "dz1dbcszc",
-        uploadPreset: "igzkbflf"
-      },
-      (error, result) => {
-        if (result.info.secure_url) {
-        this.setState({
-          rejection_url:result.info.secure_url,
-          modalIsOpen:true
-        })
-        }
-      }
-    );
-  };
-  renderCloudinary = () => {
-    return (
-      <CloudinaryContext cloudName="dz1dbcszc" className="signupbuttons">
-        <button
-          className="fluid"
-          color="black"
-          id="upload_widget_opener"
-          onClick={() => this.imageSubmit()}
-        >
-          Upload a Rejection
-        </button>
-      </CloudinaryContext>
-    );
-  };
-  changeHandler = (e) => {
-    this.setState({
-      [e.target.name]:e.target.value
-    })
-  }
-  submitHandler = (e) => {
-      debugger
-    e.preventDefault()
-    if(this.state.company.length===0 || this.state.stage_of_rejection.length===0){
-      this.setState({
-        errors:"Fields cannot be left blank"
-      })
-    }
-    else{
-      let copy={...this.state}
-      delete copy["errors"]
-      delete copy["display"]
-      delete copy["user"]
-      delete copy["modalIsOpen"]
-      this.props.createRejection(copy)
-      this.getProfile()
-      this.setState({modalIsOpen:false})
-    }
-  }
+
   renderProfile = () => {
     return (
       <React.Fragment>
@@ -131,7 +68,7 @@ class Profile extends React.Component {
           {this.state.user.rejections ? (
             <ProfileRejectionContainer
               rejections={this.state.user.rejections}
-            
+
               reRender={this.getProfile}
             />
           ) : null}

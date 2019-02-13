@@ -104,11 +104,11 @@ class Profile extends React.Component {
           className="avatarOnProfile"
         />
         <h1>
-          Name: {this.state.user.f_name} {this.state.user.l_name}
+          Name: {this.props.user.f_name} {this.props.user.l_name}
         </h1>
-        <h1>Username: {this.state.user.username}</h1>
-        <h1>Email: {this.state.user.email}</h1>
-        <h1>Cohort Name: {this.state.user.cohort_name}</h1>
+        <h1>Username: {this.props.user.username}</h1>
+        <h1>Email: {this.props.user.email}</h1>
+        <h1>Cohort Name: {this.props.user.cohort_name}</h1>
         {this.renderCloudinary()}
         <Modal  className="rejectionModal" isOpen={this.state.modalIsOpen}>
           <form className="rejectionForm" onSubmit={(e)=>this.submitHandler(e)}>
@@ -123,8 +123,8 @@ class Profile extends React.Component {
           <h1>Rejections</h1>
           {this.state.user.rejections ? (
             <ProfileRejectionContainer
-              rejections={this.state.user.rejections}
-            
+              rejections={this.props.user.rejections}
+
               reRender={this.getProfile}
             />
           ) : null}
@@ -137,6 +137,7 @@ class Profile extends React.Component {
   }
 }
 const mapStateToProps = state => {
+  console.log(state.user.rejections)
   return {
     user: state.user
   };

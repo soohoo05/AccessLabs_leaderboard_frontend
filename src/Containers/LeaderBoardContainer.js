@@ -41,7 +41,7 @@ class LeaderBoardContainer extends React.Component {
     }
   render () {
     return (
-     
+
      <Paper>
         <table>
             <thead>
@@ -59,9 +59,9 @@ class LeaderBoardContainer extends React.Component {
         </table>
         </Paper>
 
-  }
+  )
 }
-
+}
 const mapStateToProps = state => {
   return {
     user: state.currentUser,
