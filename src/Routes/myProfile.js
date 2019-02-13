@@ -16,17 +16,13 @@ class Profile extends React.Component {
     stage_of_rejection:"",
     rejection_url:"",
     errors:"",
-    id:"",
-
+    id:""
   };
   componentDidMount() {
-
     this.getProfile()
   }
   getProfile = () =>{
     console.log("rerenmdering")
-    console.log(this.props)
-
     let theUsername = this.props.history.location.pathname.split("/")[2];
     let token = localStorage.getItem("token");
     axios.get("http://localhost:3000/api/v1/profile", {
@@ -40,21 +36,10 @@ class Profile extends React.Component {
       .then(res => {
         this.setState({
           user: res.data.user,
-          id:res.data.user.id,
-          rejectionsArr:res.data.user.rejections
+          id:res.data.user.id
         });
             })
   }
-  shouldComponentUpdate(prevProps) {
-      console.log(prevProps)
-      if(this.props.user === prevProps.user){
-
-          return true
-      }
-      else{
-          return false
-      }
-}
   imageSubmit = () => {
     var myUploadWidget;
     myUploadWidget = window.cloudinary.openUploadWidget(
@@ -92,7 +77,6 @@ class Profile extends React.Component {
     })
   }
   submitHandler = (e) => {
-      debugger
     e.preventDefault()
     if(this.state.company.length===0 || this.state.stage_of_rejection.length===0){
       this.setState({
@@ -111,6 +95,7 @@ class Profile extends React.Component {
     }
   }
   renderProfile = () => {
+
     return (
       <React.Fragment>
         <img
@@ -124,8 +109,16 @@ class Profile extends React.Component {
         <h1>Username: {this.state.user.username}</h1>
         <h1>Email: {this.state.user.email}</h1>
         <h1>Cohort Name: {this.state.user.cohort_name}</h1>
-
-
+        {this.renderCloudinary()}
+        <Modal  className="rejectionModal" isOpen={this.state.modalIsOpen}>
+          <form className="rejectionForm" onSubmit={(e)=>this.submitHandler(e)}>
+            {this.state.errors ? <h1>{this.state.errors}</h1> :null}
+            <input type="text" placeholder="Company Name" name="company" onChange={(e)=>this.changeHandler(e)} value={this.state.company}/>
+            <input type="text" placeholder="Stage of rejection" name="stage_of_rejection" onChange={(e)=>this.changeHandler(e)} value={this.state.stage_of_rejection}/>
+            <button>Submit</button>
+          </form>
+          <button onClick={()=>this.setState({modalIsOpen:false})}>Cancel</button>
+        </Modal>
         <div className="rejectionsDiv">
           <h1>Rejections</h1>
           {this.state.user.rejections ? (

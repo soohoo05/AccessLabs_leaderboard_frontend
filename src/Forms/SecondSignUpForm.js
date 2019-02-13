@@ -19,6 +19,8 @@ class SecondSignUpForm extends React.Component {
           name="f_name"
           onChange={e => changeHandler(e)}
         />
+        <br/>
+      <br/>
         <input
           type="text"
           placeholder="Last Name"
@@ -26,7 +28,11 @@ class SecondSignUpForm extends React.Component {
           name="l_name"
           onChange={e => changeHandler(e)}
         />
+        <br/>
+      <br/>
         <CohortSelect value={state.cohort_name} changeHandler={changeHandler} />
+          <br/>
+        <br/>
         <CloudinaryContext cloudName="dz1dbcszc" className="signupbuttons">
           <button
             className="fluid"
@@ -37,7 +43,11 @@ class SecondSignUpForm extends React.Component {
             Upload a picture
           </button>
         </CloudinaryContext>
+        <br/>
+      <br/>
         <button onClick={() => backHandler()}>Back</button>
+          <br/>
+        <br/>
         <button onClick={() => submitHandler()}>Submit</button>
       </React.Fragment>
     );

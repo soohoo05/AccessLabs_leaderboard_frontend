@@ -19,3 +19,44 @@
 }
 .rejectionForm{
 }
+.NavBar{
+  display: inline-flex;
+  background-color: #1eb4e4;
+  width: 100vw;
+}
+.NavDiv{
+  height: 5vh;
+  width:10vw;
+  background-color: #1eb4e4;
+  text-align: center;
+border-style: solid;
+line-height: 5vh;
+}
+.NavLog{
+  position: absolute;
+  left:89.5%
+}
+.SignUp{
+  margin-top: -5vh;
+  height:100vh;
+  width:100vw;
+  background: url('https://cdn.geekwire.com/wp-content/uploads/2018/09/Flatiron-School_Classroom-1260x840.jpg')  no-repeat center center fixed;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.CredentialDiv{
+  height:50vh;
+  width:20vw;
+  position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+  margin: auto;
+  background-color:  #1eb4e4;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+}

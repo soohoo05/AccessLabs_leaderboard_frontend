@@ -1,5 +1,7 @@
 import React from 'react'
 import { withRouter, Link} from "react-router-dom";
+import { connect } from "react-redux";
+
 import TableCell from '@material-ui/core/TableCell';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -13,9 +15,18 @@ const CustomTableCell = withStyles(theme => ({
   },
 }))(TableCell);
 
+
 class LeaderBoardUser extends React.Component {
   changeHistory = () => {
+    let OwnProfile =
+      this.props.user.username===this.props.currentUser.username
+
+    if(OwnProfile){
+      this.props.history.push(`/profile/${this.props.currentUser.username}`)
+    }
+    else{
     this.props.history.push(`/User/${this.props.user.username}`)
+  }
   }
   render () {
     return <tr>
@@ -27,5 +38,9 @@ class LeaderBoardUser extends React.Component {
             </tr>
       }
 }
-
-export default withRouter(LeaderBoardUser);
+const mapStateToProps = state => {
+  return {
+    currentUser: state.user
+  };
+};
+export default withRouter(connect(mapStateToProps)(LeaderBoardUser));

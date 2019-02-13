@@ -40,28 +40,25 @@ class LeaderBoardContainer extends React.Component {
         return this.state.users.map(user => <LeaderBoardUser rank = {i++} user = {user} key={user.id}/>)
     }
   render () {
-      console.log(this.props)
     return (
-      <Paper>
+     
+     <Paper>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Username</th>
+                    <th>Cohort</th>
+                    <th>Points</th>
+                    <th>Profile</th>
+                </tr>
+            </thead>
+            <tbody>
+                {this.state.users ? this.renderLeaderboardRow() : null}
+            </tbody>
+        </table>
+        </Paper>
 
-        <Table>
-            <TableHead>
-                <TableRow>
-                    <CustomTableCell>Rank</CustomTableCell>
-                    <CustomTableCell>Username</CustomTableCell>
-                    <CustomTableCell>Cohort</CustomTableCell>
-                    <CustomTableCell>Points</CustomTableCell>
-                    <CustomTableCell>Profile</CustomTableCell>
-                </TableRow>
-            </TableHead>
-            <TableBody>
-                {this.renderLeaderboardRow()}
-            </TableBody>
-        </Table>
-
-
-      </Paper>
-    );
   }
 }
 

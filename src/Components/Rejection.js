@@ -1,9 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
 import { destroyRejection } from "../Actions/UserActions";
+import { withRouter, Link} from "react-router-dom";
 
 class Rejection extends React.Component {
+  deleteRej = () => {
+    this.props.deleteRejection(this.props.aRejection)
+    this.props.reRender()
+  }
   render() {
+    console.log(this.props.history.location.pathname.split('/')[1])
     let { aRejection } = this.props;
     return (
       <div>
@@ -12,7 +18,7 @@ class Rejection extends React.Component {
         <button onClick={() => window.open(aRejection.rejection_url)}>
           See Rejection
         </button>
-        {this.props.OwnProfile ? <button onClick={()=>this.props.deleteRejection(aRejection)}>Delete Rejection</button> : null}
+    {this.props.history.location.pathname.split('/')[1] ==="profile" ? <button onClick={()=>this.deleteRej()}>Delete Rejection</button>: null}
       </div>
     );
   }
@@ -24,4 +30,9 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 }
-export default connect(null,mapDispatchToProps)(Rejection);
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Rejection));

@@ -4,6 +4,7 @@ import { Switch, Route, withRouter} from "react-router-dom";
 import NavBar from "./Components/NavBar";
 import Home from "./Routes/Home";
 import Profile from "./Routes/Profile";
+import myProfile from "./Routes/myProfile";
 import SignIn from "./Routes/SignIn";
 import SignUp from "./Routes/SignUp";
 import { connect } from "react-redux";
@@ -33,7 +34,9 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/SignIn" component={SignIn} />
           <Route exact path="/SignUp" component={SignUp} />
-          <Route exact path="/user/:username" component={Profile} />
+          <Route exact path="/user/:Username" component={Profile} />
+          <Route exact path="/profile/:Username" component={myProfile}/>
+
         </Switch>
       </React.Fragment>
     );
