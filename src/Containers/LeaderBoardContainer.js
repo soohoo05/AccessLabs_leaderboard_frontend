@@ -34,7 +34,7 @@ class LeaderBoardContainer extends React.Component {
                 </tr>
             </thead>
             <tbody>
-                {this.renderLeaderboardRow()}
+                {this.state.users ? this.renderLeaderboardRow() : null}
             </tbody>
         </table>
 
