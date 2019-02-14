@@ -60,3 +60,8 @@ line-height: 5vh;
   padding: 20px;
   text-align: center;
 }
+.avatarOnProfile{
+    height:150px;
+    width:150px;
+    border-radius: 100px;
+}
