@@ -16,7 +16,7 @@ class SignUp extends React.Component {
     next: false,
     errors: "",
     avatar:
-      "https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=2ahUKEwjumZzW1KLgAhUJT98KHR8jCX0QjRx6BAgBEAU&url=https%3A%2F%2Fbrinm.org%2Fabout%2Fstaff%2Ffacebook-default-no-profile-pic%2F&psig=AOvVaw0DvojyAtREurgBvzvlUEDh&ust=1549389722022706"
+      "https://banner2.kisspng.com/20180406/xxw/kisspng-user-profile-facebook-clip-art-passport-5ac82fb9a13376.6053831915230688576603.jpg"
   };
   changeHandler = e => {
     this.setState({

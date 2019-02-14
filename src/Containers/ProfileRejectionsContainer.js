@@ -22,8 +22,11 @@ const CustomTableCell = withStyles(theme => ({
 
 class ProfileRejectionContainer extends React.Component {
   render() {
-      console.log(this.props.rejections)
-    let rejections = this.props.rejections.map(rejection => (
+
+    let rejections
+    if(this.props.rejections){
+    rejections = this.props.rejections.map(rejection => (
+
       <Rejection
         aRejection={rejection}
         key={rejection.id}
@@ -31,6 +34,7 @@ class ProfileRejectionContainer extends React.Component {
         reRender={this.props.reRender}
       />
     ));
+
     return <div className="ProfileRejectionContainer">
         <Table>
             <TableHead>
@@ -45,6 +49,7 @@ class ProfileRejectionContainer extends React.Component {
             </TableBody>
         </Table>
     </div>;
+
   }
 }
 

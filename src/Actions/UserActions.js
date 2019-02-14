@@ -33,6 +33,7 @@ export const destroyRejection = (theRejection)=>{
   return dispatch =>{
     return axios.delete(`http://localhost:3000/api/v1/rejections/${theRejection.id}`)
       .then(json=>{
+        console.log(json)
         dispatch({ type: "SET_USER", payload: json.data.user });
       })
   }

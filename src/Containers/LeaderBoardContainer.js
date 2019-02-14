@@ -39,8 +39,10 @@ class LeaderBoardContainer extends React.Component {
         let i = 1
         return this.state.users.map(user => <LeaderBoardUser rank = {i++} user = {user} key={user.id}/>)
     }
-  render(){
-    return(
+
+  render () {
+    return (
+
      <Paper>
         <Table>
             <TableHead>
@@ -57,9 +59,12 @@ class LeaderBoardContainer extends React.Component {
             </TableBody>
         </Table>
         </Paper>
-  )}
+
+
+  )
 }
 
+}
 const mapStateToProps = state => {
   return {
     user: state.currentUser,
@@ -73,4 +78,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect (null, mapDispatchToProps)(LeaderBoardContainer);
+export default connect (mapStateToProps, mapDispatchToProps)(LeaderBoardContainer);

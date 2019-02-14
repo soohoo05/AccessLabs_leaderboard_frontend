@@ -22,7 +22,6 @@ class Profile extends React.Component {
     this.getProfile()
   }
   getProfile = () =>{
-    console.log("rerenmdering")
     let theUsername = this.props.history.location.pathname.split("/")[2];
     let token = localStorage.getItem("token");
     axios.get("http://localhost:3000/api/v1/profile", {
@@ -61,7 +60,7 @@ class Profile extends React.Component {
     return (
       <CloudinaryContext cloudName="dz1dbcszc" className="signupbuttons">
         <button
-          className="fluid"
+          className="rejectionButton"
           color="black"
           id="upload_widget_opener"
           onClick={() => this.imageSubmit()}
@@ -95,21 +94,23 @@ class Profile extends React.Component {
     }
   }
   renderProfile = () => {
-
+    console.log(this.state.user.rejections)
     return (
       <React.Fragment>
+          <div className="leftProfile">
         <img
           src={this.state.user.avatar}
           alt="avatar"
           className="avatarOnProfile"
         />
         <h1>
-          Name: {this.state.user.f_name} {this.state.user.l_name}
+          Name: {this.props.user.f_name} {this.props.user.l_name}
         </h1>
-        <h1>Username: {this.state.user.username}</h1>
-        <h1>Email: {this.state.user.email}</h1>
-        <h1>Cohort Name: {this.state.user.cohort_name}</h1>
+        <h1>Username: {this.props.user.username}</h1>
+        <h1>Email: {this.props.user.email}</h1>
+        <h1>Cohort Name: {this.props.user.cohort_name}</h1>
         {this.renderCloudinary()}
+      </div>
         <Modal  className="rejectionModal" isOpen={this.state.modalIsOpen}>
           <form className="rejectionForm" onSubmit={(e)=>this.submitHandler(e)}>
             {this.state.errors ? <h1>{this.state.errors}</h1> :null}
@@ -120,11 +121,11 @@ class Profile extends React.Component {
           <button onClick={()=>this.setState({modalIsOpen:false})}>Cancel</button>
         </Modal>
         <div className="rejectionsDiv">
-          <h1>Rejections</h1>
-          {this.state.user.rejections ? (
+          <h1 className="rejectionHeader">Rejections</h1>
+          {this.state.user ? (
             <ProfileRejectionContainer
-              rejections={this.state.user.rejections}
-            
+              rejections={this.props.user.rejections}
+
               reRender={this.getProfile}
             />
           ) : null}
@@ -133,7 +134,7 @@ class Profile extends React.Component {
     );
   };
   render() {
-    return <div>{ this.renderProfile()}</div>;
+    return <div className="profileDiv">{this.state.user ? this.renderProfile() : null}</div>;
   }
 }
 const mapStateToProps = state => {
