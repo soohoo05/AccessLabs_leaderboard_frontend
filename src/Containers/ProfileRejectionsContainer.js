@@ -2,7 +2,9 @@ import React from "react";
 import Rejection from "../Components/Rejection";
 class ProfileRejectionContainer extends React.Component {
   render() {
-    let rejections = this.props.rejections.map(rejection => (
+    let rejections
+    if(this.props.rejections){
+    rejections = this.props.rejections.map(rejection => (
       <Rejection
         aRejection={rejection}
         key={rejection.id}
@@ -10,6 +12,7 @@ class ProfileRejectionContainer extends React.Component {
         reRender={this.props.reRender}
       />
     ));
+  }
     return <div className="ProfileRejectionContainer">{rejections}</div>;
   }
 }

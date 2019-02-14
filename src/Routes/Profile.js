@@ -24,8 +24,6 @@ class Profile extends React.Component {
     this.getProfile()
   }
   getProfile = () =>{
-    console.log("rerenmdering")
-    console.log(this.props)
 
     let theUsername = this.props.history.location.pathname.split("/")[2];
     let token = localStorage.getItem("token");
@@ -50,6 +48,7 @@ class Profile extends React.Component {
   renderProfile = () => {
     return (
       <React.Fragment>
+        <div className="leftProfile">
         <img
           src={this.state.user.avatar}
           alt="avatar"
@@ -61,10 +60,10 @@ class Profile extends React.Component {
         <h1>Username: {this.state.user.username}</h1>
         <h1>Email: {this.state.user.email}</h1>
         <h1>Cohort Name: {this.state.user.cohort_name}</h1>
-
+        </div>
 
         <div className="rejectionsDiv">
-          <h1>Rejections</h1>
+          <h1 className="rejectionHeader">Rejections</h1>
           {this.state.user.rejections ? (
             <ProfileRejectionContainer
               rejections={this.state.user.rejections}
@@ -77,7 +76,7 @@ class Profile extends React.Component {
     );
   };
   render() {
-    return <div>{ this.renderProfile()}</div>;
+    return <div className="profileDiv">{ this.renderProfile()}</div>;
   }
 }
 const mapStateToProps = state => {

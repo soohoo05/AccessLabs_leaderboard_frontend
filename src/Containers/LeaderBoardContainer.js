@@ -75,4 +75,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect (null, mapDispatchToProps)(LeaderBoardContainer);
+export default connect (mapStateToProps, mapDispatchToProps)(LeaderBoardContainer);
