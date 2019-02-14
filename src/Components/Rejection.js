@@ -3,6 +3,21 @@ import { connect } from "react-redux";
 import { destroyRejection } from "../Actions/UserActions";
 import { withRouter, Link} from "react-router-dom";
 
+
+import TableRow from '@material-ui/core/TableRow';
+import { withStyles } from '@material-ui/core/styles';
+import TableCell from '@material-ui/core/TableCell';
+
+const CustomTableCell = withStyles(theme => ({
+  head: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  body: {
+    fontSize: 14,
+  },
+}))(TableCell);
+
 class Rejection extends React.Component {
   deleteRej = () => {
     this.props.deleteRejection(this.props.aRejection)
@@ -12,14 +27,15 @@ class Rejection extends React.Component {
     console.log(this.props.history.location.pathname.split('/')[1])
     let { aRejection } = this.props;
     return (
-      <div>
-        <h1>{aRejection.company}</h1>
-        <p>{aRejection.stage_of_rejection}</p>
-        <button onClick={() => window.open(aRejection.rejection_url)}>
+      <TableRow>
+        <CustomTableCell>{aRejection.company}</CustomTableCell>
+        <CustomTableCell>{aRejection.stage_of_rejection}</CustomTableCell>
+        <CustomTableCell><button onClick={() => window.open(aRejection.rejection_url)}>
           See Rejection
         </button>
+        </CustomTableCell>
     {this.props.history.location.pathname.split('/')[1] ==="profile" ? <button onClick={()=>this.deleteRej()}>Delete Rejection</button>: null}
-      </div>
+      </TableRow>
     );
   }
 }

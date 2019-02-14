@@ -39,33 +39,31 @@ class LeaderBoardContainer extends React.Component {
         let i = 1
         return this.state.users.map(user => <LeaderBoardUser rank = {i++} user = {user} key={user.id}/>)
     }
-  render () {
-    return (
-     
+  render(){
+    return(
      <Paper>
-        <table>
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Username</th>
-                    <th>Cohort</th>
-                    <th>Points</th>
-                    <th>Profile</th>
-                </tr>
-            </thead>
-            <tbody>
+        <Table>
+            <TableHead>
+                <TableRow>
+                    <CustomTableCell>Rank</CustomTableCell>
+                    <CustomTableCell>Username</CustomTableCell>
+                    <CustomTableCell>Cohort</CustomTableCell>
+                    <CustomTableCell>Points</CustomTableCell>
+                    <CustomTableCell>Profile</CustomTableCell>
+                </TableRow>
+            </TableHead>
+            <TableBody>
                 {this.state.users ? this.renderLeaderboardRow() : null}
-            </tbody>
-        </table>
+            </TableBody>
+        </Table>
         </Paper>
-
-  }
+  )}
 }
 
 const mapStateToProps = state => {
   return {
     user: state.currentUser,
-    leaderboard: state.leaderboard,
+    leaderboard: state.leaderboard
   };
 };
 
