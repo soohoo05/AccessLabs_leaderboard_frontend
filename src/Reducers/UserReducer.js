@@ -12,7 +12,7 @@ export default function UserReducer ( state = store, action) {
     case "SET_USER":
       return { ...state, user: action.payload }
     case "SIGN_IN":
-        return signIn();
+        return { ...state, user: action.payload }
     default:
       return state;
   }
