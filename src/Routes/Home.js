@@ -3,10 +3,10 @@ import LeaderBoardContainer from '../Containers/LeaderBoardContainer'
 class Home extends React.Component {
   render () {
     return (
-      <React.Fragment>
-      <h1>Home</h1>
+      <div className = "home-container">
+      <h1>Access Labs Leaderboard</h1>
       <LeaderBoardContainer/>
-      </React.Fragment>
+      </div>
     );
   }
 }

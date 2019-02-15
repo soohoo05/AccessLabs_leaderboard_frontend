@@ -34,7 +34,7 @@ class Rejection extends React.Component {
           See Rejection
         </button>
         </CustomTableCell>
-    {this.props.history.location.pathname.split('/')[1] ==="profile" ? <button onClick={()=>this.deleteRej()}>Delete Rejection</button>: null}
+    {this.props.history.location.pathname.split('/')[1] ==="profile" ?<CustomTableCell> <button onClick={()=>this.deleteRej()}>Delete Rejection</button></CustomTableCell>: null}
       </TableRow>
     );
   }
