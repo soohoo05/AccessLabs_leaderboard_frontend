@@ -1,5 +1,12 @@
 import axios from "axios";
 
+export const logIn = user => {
+  return {
+    type: "SIGN_IN",
+    payload: user
+  };
+};
+
 export const signUp = (user, history) => {
   return dispatch => {
     return axios
@@ -14,6 +21,29 @@ export const signUp = (user, history) => {
       .catch(error => alert("User already made or field(s) were left blank"));
   };
 };
+
+export const signIn = (user) => {
+    return function thunk(dispatch) {
+      return fetch("http://localhost:3000/api/v1/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          user: {
+            username: user.username,
+            password: user.password
+          }
+        })
+      })
+        .then(r => r.json())
+        .then(res => {
+          localStorage.setItem("token", res.jwt);
+
+          dispatch(logIn(res.user));
+        });
+    };
+  };
 
 export const makeRejection = (theRejection) => {
   return dispatch => {
