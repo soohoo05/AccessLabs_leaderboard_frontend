@@ -11,7 +11,7 @@ class SecondSignUpForm extends React.Component {
       imageSubmit
     } = this.props;
     return (
-      <React.Fragment>
+     <div className = "login-form">
         <input
           type="text"
           placeholder="First Name"
@@ -49,7 +49,7 @@ class SecondSignUpForm extends React.Component {
           <br/>
         <br/>
         <button onClick={() => submitHandler()}>Submit</button>
-      </React.Fragment>
+      </div>
     );
   }
 }

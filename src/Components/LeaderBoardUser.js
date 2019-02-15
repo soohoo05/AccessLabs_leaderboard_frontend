@@ -6,11 +6,9 @@ import TableCell from '@material-ui/core/TableCell';
 import { withStyles } from '@material-ui/core/styles';
 
 const CustomTableCell = withStyles(theme => ({
-  head: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
-  },
+
   body: {
+    backgroundColor: theme.palette.common.black,
     fontSize: 20,
   },
 }))(TableCell);
@@ -35,7 +33,7 @@ class LeaderBoardUser extends React.Component {
                 <CustomTableCell align="left">{this.props.user.cohort_name}</CustomTableCell>
                 <CustomTableCell align="left">{this.props.user.rejections.length}</CustomTableCell>
                 <CustomTableCell align="left"><button onClick={()=>this.changeHistory()}>Profile</button></CustomTableCell>
-                
+
             </TableRow>
       }
 }

@@ -11,7 +11,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 const CustomTableCell = withStyles(theme => ({
   head: {
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: "#1eb4e4",
     color: theme.palette.common.white,
     fontSize:20
   },

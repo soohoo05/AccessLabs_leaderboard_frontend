@@ -79,9 +79,8 @@ class SignUp extends React.Component {
   };
   render() {
     return (
-      <div className="SignUp">
-      <div className="CredentialDiv">
-        <h1>Sign Up</h1>
+      <div>
+      <div>
         {this.state.errors ? <h1>{this.state.errors}</h1> : null}
         {!this.state.next ? (
           <FirstSignUpForm
