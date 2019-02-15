@@ -35,6 +35,7 @@ class LeaderBoardUser extends React.Component {
                 <CustomTableCell align="left">{this.props.user.cohort_name}</CustomTableCell>
                 <CustomTableCell align="left">{this.props.user.rejections.length}</CustomTableCell>
                 <CustomTableCell align="left"><button onClick={()=>this.changeHistory()}>Profile</button></CustomTableCell>
+                
             </TableRow>
       }
 }
