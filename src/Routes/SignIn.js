@@ -42,7 +42,7 @@ class SignIn extends React.Component {
                                 <button className="pull-right">Forgot Password?</button>
                             </div>
                         </form>
-                        <p className="text-center"><button>Create an Account</button></p>
+                        <p className="text-center"><button className="btn btn-success btn-block">Create an Account</button></p>
                     </div>
                 </div>
 

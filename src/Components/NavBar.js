@@ -16,7 +16,7 @@ class NavBar extends React.Component {
     console.log(this.props.user)
     return (
         <nav className="navbar navbar-expand-lg navbar-default">
-        <NavLink to ="/" className="navbar-brand"><h2>Access Labs Leaderboard</h2></NavLink>
+        <NavLink to ="/" className="navbar-brand" style={{color:'white'}}>Access Labs Leaderboard</NavLink>
 
           {this.props.user ?
                <div className = "top-right-buttons">
