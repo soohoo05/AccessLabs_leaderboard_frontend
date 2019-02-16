@@ -79,7 +79,8 @@ class SignUp extends React.Component {
   };
   render() {
     return (
-        <div className = "SignUp">
+
+        <div className = "container">
         <div className = "form-container">
         <div className="login-form">
         {this.state.errors ? <h1>{this.state.errors}</h1> : null}
@@ -102,7 +103,8 @@ class SignUp extends React.Component {
         ) : null}
         </div>
       </div>
-    </div>
+      </div>
+
     );
   }
 }

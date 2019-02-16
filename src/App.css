@@ -1,6 +1,6 @@
 body{
-  overflow: hidden;
-  background-color:#f1f1f1;
+    overflow:hidden;
+
 }
 .avatarOnProfile{
   height:500px;
@@ -96,7 +96,7 @@ body{
   text-shadow: 2px 2px 0 rgba(0,0,0,1) ;
   color: red;
 }
-.NavBar{
+/* .NavBar{
   display: inline-flex;
   vertical-align: middle;
   background-color: #1eb4e4;
@@ -128,9 +128,7 @@ top: 50%;
 transform: translateY(-50%);
 }
 .SignUp{
-  margin-top: -5vh;
-  height:100vh;
-  width:100vw;
+
   background: url('https://cdn.geekwire.com/wp-content/uploads/2018/09/Flatiron-School_Classroom-1260x840.jpg')  no-repeat center center fixed;
 
   -webkit-background-size: cover;
@@ -138,7 +136,7 @@ transform: translateY(-50%);
   -o-background-size: cover;
   background-size: cover;
 
-}
+} */
 .CredentialDiv{
   height:50vh;
   width:20vw;
@@ -232,15 +230,17 @@ text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
 }
 .login-form {
 		width: 385px;
-		margin: 30px auto;
+		margin: 100px auto;
         text-align: center;
-
+        z-index: 999999;
 	}
     .login-form form {
+
     	margin-bottom: 15px;
         background: #f7f7f7;
         box-shadow: 2px 0px 2px 2px rgba(0.3, 0.3, 0.3, 0.3);
         padding: 30px;
+        z-index: 999999;
     }
     .login-form h2 {
         margin: 0 0 15px;
@@ -256,13 +256,7 @@ text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
         font-size: 15px;
         font-weight: bold;
     }
-    .home-container{
-        background-color:#f1f1f1;
-        height:100vh;
-        width:100vw;
-        margin-top: 50px;
 
-    }
     .home-container h1{
         text-align: center;
         padding: 0;
@@ -338,6 +332,7 @@ text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
         width:100%;
         padding-bottom: 0;
         margin-bottom: 0;
+        z-index: 10;
     }
     .navbar-brand h2{
         color: #fff;
@@ -355,5 +350,22 @@ text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
         margin-right: 20px;
     }
     .btn-outline-secondary{
-margin-right: 20px;
+        margin-right: 20px;
     }
+
+
+.form-container{
+    z-index: 9999;
+}
+.container{
+    background-image: url('https://i.imgur.com/z8OpMwJ.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}

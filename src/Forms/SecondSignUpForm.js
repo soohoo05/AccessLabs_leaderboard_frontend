@@ -11,6 +11,7 @@ class SecondSignUpForm extends React.Component {
       imageSubmit
     } = this.props;
     return (
+
      <div className = "login-form">
      <form>
      <h2 className="text-center">Sign Up</h2>
@@ -67,6 +68,7 @@ class SecondSignUpForm extends React.Component {
         </div>
         </form>
       </div>
+    
     );
   }
 }
