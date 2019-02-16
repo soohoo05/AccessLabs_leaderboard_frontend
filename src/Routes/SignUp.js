@@ -79,8 +79,9 @@ class SignUp extends React.Component {
   };
   render() {
     return (
-      <div>
-      <div>
+        <div className = "SignUp">
+        <div className = "form-container">
+        <div className="login-form">
         {this.state.errors ? <h1>{this.state.errors}</h1> : null}
         {!this.state.next ? (
           <FirstSignUpForm
@@ -99,6 +100,7 @@ class SignUp extends React.Component {
           />
 
         ) : null}
+        </div>
       </div>
     </div>
     );

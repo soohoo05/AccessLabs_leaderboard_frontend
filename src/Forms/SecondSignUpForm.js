@@ -12,43 +12,60 @@ class SecondSignUpForm extends React.Component {
     } = this.props;
     return (
      <div className = "login-form">
+     <form>
+     <h2 className="text-center">Sign Up</h2>
+     <div className = "form-group">
         <input
           type="text"
           placeholder="First Name"
           value={state.f_name}
           name="f_name"
           onChange={e => changeHandler(e)}
+          className="form-control"
         />
-        <br/>
-      <br/>
+        </div>
+        <div className = "form-group">
         <input
           type="text"
           placeholder="Last Name"
           value={state.l_name}
           name="l_name"
           onChange={e => changeHandler(e)}
+          className="form-control"
         />
-        <br/>
-      <br/>
+        </div>
         <CohortSelect value={state.cohort_name} changeHandler={changeHandler} />
-          <br/>
-        <br/>
+        <div className = "form-group">
         <CloudinaryContext cloudName="dz1dbcszc" className="signupbuttons">
+        <br/>
           <button
             className="fluid"
             color="black"
             id="upload_widget_opener"
             onClick={imageSubmit}
+            className="btn btn-primary btn-block"
           >
+
             Upload a picture
           </button>
         </CloudinaryContext>
-        <br/>
-      <br/>
-        <button onClick={() => backHandler()}>Back</button>
-          <br/>
-        <br/>
-        <button onClick={() => submitHandler()}>Submit</button>
+    </div>
+    <div className = "form-group">
+        <button
+        onClick={() => backHandler()}
+        className="btn btn-primary btn-block"
+        >
+            Back
+        </button>
+    </div>
+    <div className = "form-group">
+        <button
+        onClick={() => submitHandler()}
+        className="btn btn-primary btn-block"
+        >
+        Submit</button>
+        </div>
+        </form>
       </div>
     );
   }

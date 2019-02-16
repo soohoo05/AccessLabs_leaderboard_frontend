@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { withRouter} from "react-router-dom";
+import {NavLink} from 'react-router-dom'
+import {Button} from 'react-bootstrap'
 class NavBar extends React.Component {
   logout = () => {
     //to do: get rid of token
@@ -12,13 +14,37 @@ class NavBar extends React.Component {
 
   render() {
     console.log(this.props.user)
-    return <div className="NavBar">
-      <div className="NavDiv" onClick={()=>this.props.history.replace('/')}>Access Labs Leaderboard</div>
-      {this.props.user ? <img alt="profile" src={this.props.user.avatar} className="NavDiv NavToProfile" onClick={()=>this.props.history.replace(`/profile/${this.props.user.username}`)}/> : null}
-      {this.props.user ? <button className="SIB" onClick={()=>this.logout()}>Logout</button> :<React.Fragment><button className="SIB" onClick={()=>this.props.history.replace('/SignIn')}>Login</button><button className="SIB SUB" onClick={()=>this.props.history.replace('/Signup')}>SignUp</button></React.Fragment>}
-    </div>;
+    return (
+        <nav className="navbar navbar-expand-lg navbar-default">
+        <NavLink to ="/" className="navbar-brand"><h2>Access Labs Leaderboard</h2></NavLink>
+
+          {this.props.user ?
+               <div className = "top-right-buttons">
+              <button
+                onClick={()=>this.props.history.replace(`/profile/${this.props.user.username}`)}>
+                Profile
+            </button>
+            <button className="SIB" onClick={()=>this.logout()}>
+            Sign Out</button>
+            </div>
+            :   <div className = "top-right-buttons">
+            <button className="SIB" onClick={()=>this.props.history.replace('/SignIn')}>
+                Sign In
+            </button>
+
+            <button className="SIB SUB" onClick={()=>this.props.history.replace('/Signup')}>
+                Sign Up
+            </button>
+            </div>
+        }
+        </nav>
+
+    )
+
   }
 }
+
+
 const mapStateToProps = state => {
   return {    user: state.user
   };

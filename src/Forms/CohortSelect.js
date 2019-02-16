@@ -8,6 +8,7 @@ class CohortSelect extends React.Component {
         value={cohort}
         onChange={e => changeHandler(e)}
         name="cohort_name"
+        className = "form-control"
       >
         <option value="---">---</option>
         <option value="Timbledore's Army">Timbledore's Army</option>

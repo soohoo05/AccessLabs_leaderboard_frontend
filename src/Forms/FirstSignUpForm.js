@@ -5,6 +5,7 @@ class FirstSignUpForm extends React.Component {
     let { state, changeHandler, nextHandler } = this.props;
     return (
       <div className = "login-form">
+      <form>
       <h2 className="text-center">Sign Up</h2>
       <div className = "form-group">
         <input
@@ -13,6 +14,7 @@ class FirstSignUpForm extends React.Component {
           value={state.username}
           name="username"
           onChange={e => changeHandler(e)}
+          className="form-control"
         />
         </div>
 
@@ -23,6 +25,7 @@ class FirstSignUpForm extends React.Component {
           value={state.email}
           name="email"
           onChange={e => changeHandler(e)}
+          className="form-control"
         />
      </div>
      <div className = "form-group">
@@ -32,6 +35,7 @@ class FirstSignUpForm extends React.Component {
           value={state.password}
           name="password"
           onChange={e => changeHandler(e)}
+          className="form-control"
         />
         </div>
         <div className = "form-group">
@@ -41,9 +45,16 @@ class FirstSignUpForm extends React.Component {
           value={state.passwordConfirmation}
           name="passwordConfirmation"
           onChange={e => changeHandler(e)}
+          className="form-control"
         />
         </div>
-        <button onClick={() => nextHandler()}>Next</button>
+        <button
+        onClick={() => nextHandler()}
+        className="btn btn-primary btn-block"
+        >
+            Next
+        </button>
+        </form>
       </div>
     );
   }
