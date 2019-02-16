@@ -15,7 +15,7 @@ class SignIn extends React.Component {
     };
     submitHandler = e => {
         e.preventDefault()
-        this.props.signIn(this.state)
+        this.props.signIn(this.state,  this.props.history)
     }
   render () {
       console.log(this.props)
@@ -42,7 +42,14 @@ class SignIn extends React.Component {
                                 <button className="pull-right">Forgot Password?</button>
                             </div>
                         </form>
-                        <p className="text-center"><button className="btn btn-success btn-block">Create an Account</button></p>
+                        <p className="text-center">
+                            <button
+                            className="btn btn-success btn-block"
+                            onClick={()=>this.props.history.replace('/Signup')}
+                            >
+                                Create an Account
+                            </button>
+                        </p>
                     </div>
                 </div>
 
@@ -53,8 +60,8 @@ class SignIn extends React.Component {
 }
 const mapDispatchToProps = dispatch => {
   return {
-    signIn: (user) => {
-      dispatch(signIn(user));
+    signIn: (user,history) => {
+      dispatch(signIn(user,history));
     }
   };
 };

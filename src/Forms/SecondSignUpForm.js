@@ -44,7 +44,7 @@ class SecondSignUpForm extends React.Component {
             color="black"
             id="upload_widget_opener"
             onClick={imageSubmit}
-            className="btn btn-primary btn-block"
+            className="btn btn-primary btn-block sec"
           >
 
             Upload a picture
@@ -54,7 +54,7 @@ class SecondSignUpForm extends React.Component {
     <div className = "form-group">
         <button
         onClick={() => backHandler()}
-        className="btn btn-primary btn-block"
+        className="btn btn-primary btn-block sec"
         >
             Back
         </button>
