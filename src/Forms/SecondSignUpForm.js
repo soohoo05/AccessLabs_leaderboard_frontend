@@ -61,14 +61,14 @@ class SecondSignUpForm extends React.Component {
     </div>
     <div className = "form-group">
         <button
-        onClick={() => submitHandler()}
+        onClick={(e) => submitHandler(e)}
         className="btn btn-primary btn-block"
         >
         Submit</button>
         </div>
         </form>
       </div>
-    
+
     );
   }
 }

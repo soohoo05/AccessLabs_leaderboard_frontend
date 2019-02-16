@@ -45,7 +45,8 @@ class SignUp extends React.Component {
       next: false
     });
   };
-  submitHandler = () => {
+  submitHandler = (e) => {
+    e.preventDefault()
     if (
       this.state.f_name.length === 0 ||
       this.state.l_name.length === 0 ||

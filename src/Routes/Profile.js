@@ -56,7 +56,6 @@ class Profile extends React.Component {
           Name: {this.state.user.f_name} {this.state.user.l_name}
         </h1>
         <h1 className="profileH1">Username: {this.state.user.username}</h1>
-        <h1 className="profileH1">Email: {this.state.user.email}</h1>
         <h1 className="profileH1">Cohort Name: {this.state.user.cohort_name}</h1>
         </div>
 
