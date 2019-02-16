@@ -1,5 +1,5 @@
 body{
-  overflow: scroll;
+  overflow: hidden;
   background-color:#f1f1f1;
 }
 .avatarOnProfile{
@@ -342,5 +342,18 @@ text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
     .navbar-brand h2{
         color: #fff;
         margin: auto;
-
+    }
+    .navbar button{
+        float: right;
+        margin-top: 10px;
+    }
+    .navbar button:hover{
+        background-color: lightgray;
+    }
+    .btn-outline-primary{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .btn-outline-secondary{
+margin-right: 20px;
     }

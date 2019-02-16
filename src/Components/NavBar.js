@@ -20,21 +20,30 @@ class NavBar extends React.Component {
 
           {this.props.user ?
                <div className = "top-right-buttons">
-              <button
-                onClick={()=>this.props.history.replace(`/profile/${this.props.user.username}`)}>
-                Profile
+
+            <button
+            className = "btn btn-outline-secondary"
+            onClick={()=>this.logout()}>
+            Sign Out
             </button>
-            <button className="SIB" onClick={()=>this.logout()}>
-            Sign Out</button>
+            <button
+              onClick={()=>this.props.history.replace(`/profile/${this.props.user.username}`)}
+              className = "btn btn-outline-primary">
+              Profile
+          </button>
             </div>
             :   <div className = "top-right-buttons">
-            <button className="SIB" onClick={()=>this.props.history.replace('/SignIn')}>
+            <button
+            className = "btn btn-outline-secondary"
+            onClick={()=>this.props.history.replace('/Signup')}>
+                Sign Up
+            </button>
+            <button className = "btn btn-outline-primary"
+            onClick={()=>this.props.history.replace('/SignIn')}>
                 Sign In
             </button>
 
-            <button className="SIB SUB" onClick={()=>this.props.history.replace('/Signup')}>
-                Sign Up
-            </button>
+
             </div>
         }
         </nav>
