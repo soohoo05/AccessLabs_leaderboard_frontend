@@ -1,10 +1,6 @@
 let store = {
   user:""
 }
-const signIn = () => {
-  console.log("Hello world");
-
-};
 
 
 export default function UserReducer ( state = store, action) {
@@ -13,6 +9,9 @@ export default function UserReducer ( state = store, action) {
       return { ...state, user: action.payload }
     case "SIGN_IN":
         return { ...state, user: action.payload }
+        case "DELETE_USER":
+        console.log("du")
+     return { ...state, user: "" }
     default:
       return state;
   }

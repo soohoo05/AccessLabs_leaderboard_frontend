@@ -90,7 +90,11 @@ class Profile extends React.Component {
       delete copy["modalIsOpen"]
       this.props.createRejection(copy)
       this.getProfile()
-      this.setState({modalIsOpen:false})
+      this.setState({
+        modalIsOpen:false,
+        company:"",
+        stage_of_rejection:"",
+        errors:""})
     }
   }
   renderProfile = () => {
@@ -103,22 +107,38 @@ class Profile extends React.Component {
           alt="avatar"
           className="avatarOnProfile"
         />
-        <h1>
+        <h1 className="profileH1">
           Name: {this.props.user.f_name} {this.props.user.l_name}
         </h1>
-        <h1>Username: {this.props.user.username}</h1>
-        <h1>Email: {this.props.user.email}</h1>
-        <h1>Cohort Name: {this.props.user.cohort_name}</h1>
+        <h1 className="profileH1">Username: {this.props.user.username}</h1>
+        <h1 className="profileH1">Email: {this.props.user.email}</h1>
+        <h1 className="profileH1">Cohort Name: {this.props.user.cohort_name}</h1>
         {this.renderCloudinary()}
       </div>
-        <Modal  className="rejectionModal" isOpen={this.state.modalIsOpen}>
+        <Modal  className="rejectionModal" isOpen={this.state.modalIsOpen} style={{overlay:{ backgroundColor: 'rgba(0, 0, 0, 0.9)'
+    }}}>
+    <h1 className="ModalHeader">Rejection</h1>
           <form className="rejectionForm" onSubmit={(e)=>this.submitHandler(e)}>
-            {this.state.errors ? <h1>{this.state.errors}</h1> :null}
-            <input type="text" placeholder="Company Name" name="company" onChange={(e)=>this.changeHandler(e)} value={this.state.company}/>
-            <input type="text" placeholder="Stage of rejection" name="stage_of_rejection" onChange={(e)=>this.changeHandler(e)} value={this.state.stage_of_rejection}/>
-            <button>Submit</button>
+            {this.state.errors ? <h1 className="ModalError">{this.state.errors}</h1> :null}
+            <br/>
+              <br/>
+
+            <input className="ModalInput" type="text" placeholder="Company Name" name="company" onChange={(e)=>this.changeHandler(e)} value={this.state.company}/>
+              <br/>
+                <br/>
+
+            <input className="ModalInput" type="text" placeholder="Stage of rejection" name="stage_of_rejection" onChange={(e)=>this.changeHandler(e)} value={this.state.stage_of_rejection}/>
+              <br/>
+                <br/>
+
+            <button className="ModalButtons">Submit</button>
           </form>
-          <button onClick={()=>this.setState({modalIsOpen:false})}>Cancel</button>
+          <br/>
+            <br/>
+
+          <button className="ModalButtons" onClick={()=>this.setState({modalIsOpen:false})}>Cancel</button>
+            <h1>Preview</h1>
+            <img src={this.state.rejection_url} alt="rejection" height="200vh" width="200vw"/>
         </Modal>
         <div className="rejectionsDiv">
           <h1 className="rejectionHeader">Rejections</h1>

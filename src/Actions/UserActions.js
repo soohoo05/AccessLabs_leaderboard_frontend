@@ -40,7 +40,7 @@ export const signIn = (user) => {
         .then(res => {
           localStorage.setItem("token", res.jwt);
 
-          dispatch(logIn(res.user));
+          dispatch(logIn(res.user.user));
         });
     };
   };

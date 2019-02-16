@@ -35,7 +35,7 @@ class ProfileRejectionContainer extends React.Component {
         reRender={this.props.reRender}
       />
     ));
-
+}
     return <div className="ProfileRejectionContainer">
         <Table>
             <TableHead>
@@ -53,7 +53,7 @@ class ProfileRejectionContainer extends React.Component {
     </div>;
 
   }
-}
+
 }
 
 export default ProfileRejectionContainer;

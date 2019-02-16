@@ -3,8 +3,6 @@ import ProfileRejectionContainer from "../Containers/ProfileRejectionsContainer"
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
-import { CloudinaryContext } from "cloudinary-react";
-import Modal from 'react-modal';
 import { makeRejection } from "../Actions/UserActions";
 
 class Profile extends React.Component {
@@ -54,12 +52,12 @@ class Profile extends React.Component {
           alt="avatar"
           className="avatarOnProfile"
         />
-        <h1>
+        <h1 className="profileH1">
           Name: {this.state.user.f_name} {this.state.user.l_name}
         </h1>
-        <h1>Username: {this.state.user.username}</h1>
-        <h1>Email: {this.state.user.email}</h1>
-        <h1>Cohort Name: {this.state.user.cohort_name}</h1>
+        <h1 className="profileH1">Username: {this.state.user.username}</h1>
+        <h1 className="profileH1">Email: {this.state.user.email}</h1>
+        <h1 className="profileH1">Cohort Name: {this.state.user.cohort_name}</h1>
         </div>
 
         <div className="rejectionsDiv">
