@@ -4,6 +4,8 @@ import SecondSignUpForm from "../Forms/SecondSignUpForm";
 import { signUp } from "../Actions/UserActions";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import Fade from 'react-reveal/Fade';
+
 class SignUp extends React.Component {
   state = {
     f_name: "",
@@ -83,6 +85,7 @@ class SignUp extends React.Component {
 
         <div className = "container">
         <div className = "form-container">
+          <Fade duration={3000}>
         <div className="login-form">
         {this.state.errors ? <h1>{this.state.errors}</h1> : null}
         {!this.state.next ? (
@@ -93,6 +96,7 @@ class SignUp extends React.Component {
           />
         ) : null}
         {this.state.next ? (
+          <Fade duration={2500}>
           <SecondSignUpForm
             changeHandler={this.changeHandler}
             backHandler={this.backHandler}
@@ -100,9 +104,10 @@ class SignUp extends React.Component {
             state={this.state}
             submitHandler={this.submitHandler}
           />
-
+      </Fade>
         ) : null}
         </div>
+      </Fade>
       </div>
       </div>
 
