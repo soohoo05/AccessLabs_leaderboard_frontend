@@ -6,6 +6,7 @@ import axios from "axios";
 import { CloudinaryContext } from "cloudinary-react";
 import Modal from 'react-modal';
 import { makeRejection } from "../Actions/UserActions";
+import Fade from 'react-reveal/Fade';
 
 class Profile extends React.Component {
   state = {
@@ -101,7 +102,8 @@ class Profile extends React.Component {
     console.log(this.state.user.rejections)
     return (
       <React.Fragment>
-          <div className="leftProfile">
+        <Fade left duration={2000}>
+        <div className="leftProfile">
         <img
           src={this.state.user.avatar}
           alt="avatar"
@@ -115,8 +117,10 @@ class Profile extends React.Component {
         <h1 className="profileH1">Cohort Name: {this.props.user.cohort_name}</h1>
         {this.renderCloudinary()}
       </div>
+    </Fade>
         <Modal  className="rejectionModal" isOpen={this.state.modalIsOpen} style={{overlay:{ backgroundColor: 'rgba(0, 0, 0, 0.9)'
     }}}>
+
     <h1 className="ModalHeader">Rejection</h1>
           <form className="rejectionForm" onSubmit={(e)=>this.submitHandler(e)}>
             {this.state.errors ? <h1 className="ModalError">{this.state.errors}</h1> :null}
@@ -140,6 +144,8 @@ class Profile extends React.Component {
             <h1>Preview</h1>
             <img src={this.state.rejection_url} alt="rejection" height="200vh" width="200vw"/>
         </Modal>
+        <Fade right duration={2000}>
+
         <div className="rejectionsDiv">
           <h1 className="rejectionHeader">Rejections</h1>
           {this.state.user ? (
@@ -150,6 +156,7 @@ class Profile extends React.Component {
             />
           ) : null}
         </div>
+      </Fade>
       </React.Fragment>
     );
   };
