@@ -20,6 +20,12 @@ class SignUp extends React.Component {
     avatar:
       "https://banner2.kisspng.com/20180406/xxw/kisspng-user-profile-facebook-clip-art-passport-5ac82fb9a13376.6053831915230688576603.jpg"
   };
+  componentDidMount(){
+    let token = localStorage.getItem("token");
+    if(token){
+      this.props.history.replace(`/`)
+    }
+  }
   changeHandler = e => {
     this.setState({
       [e.target.name]: e.target.value
@@ -70,8 +76,8 @@ class SignUp extends React.Component {
     var myUploadWidget;
     myUploadWidget = window.cloudinary.openUploadWidget(
       {
-        cloudName: "dz1dbcszc",
-        uploadPreset: "igzkbflf"
+        cloudName: "drxxuymxa",
+        uploadPreset: "o8bboijd"
       },
       (error, result) => {
         if (result.info.secure_url) {

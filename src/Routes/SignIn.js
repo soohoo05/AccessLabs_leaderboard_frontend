@@ -5,6 +5,12 @@ import { withRouter } from "react-router-dom";
 import Fade from 'react-reveal/Fade';
 
 class SignIn extends React.Component {
+  componentDidMount(){
+    let token = localStorage.getItem("token");
+    if(token){
+      this.props.history.replace(`/`)
+    }
+  }
     state = {
         username : "",
         password: ""
