@@ -105,55 +105,47 @@ class Profile extends React.Component {
     return (
       <React.Fragment>
         <Fade left duration={1000}>
-        <div className="leftProfile">
+        <div className="left-profile">
         <img
           src={this.state.user.avatar}
           alt="avatar"
           className="avatarOnProfile"
         />
-        <h1 className="profileH1">
+        <h1>
           Name: {this.props.user.f_name} {this.props.user.l_name}
         </h1>
-        <h1 className="profileH1">Username: {this.props.user.username}</h1>
-        <h1 className="profileH1">Email: {this.props.user.email}</h1>
-        <h1 className="profileH1">Cohort Name: {this.props.user.cohort_name}</h1>
+        <h1>Username: {this.props.user.username}</h1>
+        <h1>Cohort Name: {this.props.user.cohort_name}</h1>
         {this.renderCloudinary()}
       </div>
     </Fade>
-        <Modal  className="rejectionModal" isOpen={this.state.modalIsOpen} style={{overlay:{ backgroundColor: 'rgba(0, 0, 0, 0.9)'
+        <Modal  className="rejection-modal" isOpen={this.state.modalIsOpen} style={{overlay:{ backgroundColor: 'rgba(0, 0, 0, 0.9)'
     }}}>
 
-    <h1 className="ModalHeader">Rejection</h1>
-          <form className="rejectionForm" onSubmit={(e)=>this.submitHandler(e)}>
+    <h1 >Rejection</h1>
+          <form className="rejection-form" onSubmit={(e)=>this.submitHandler(e)}>
             {this.state.errors ? <h1 className="ModalError">{this.state.errors}</h1> :null}
-            <br/>
-              <br/>
-
-            <input className="ModalInput" type="text" placeholder="Company Name" name="company" onChange={(e)=>this.changeHandler(e)} value={this.state.company}/>
-              <br/>
-                <br/>
-
-            <input className="ModalInput" type="text" placeholder="Stage of rejection" name="stage_of_rejection" onChange={(e)=>this.changeHandler(e)} value={this.state.stage_of_rejection}/>
-              <br/>
-                <br/>
-
-            <button className="ModalButtons">Submit</button>
+        <div className = "form-group">
+            <input className="form-control" type="text" placeholder="Company Name" name="company" onChange={(e)=>this.changeHandler(e)} value={this.state.company}/>
+        </div>
+        <div className = "form-group">
+            <input className="form-control" type="text" placeholder="Stage of rejection" name="stage_of_rejection" onChange={(e)=>this.changeHandler(e)} value={this.state.stage_of_rejection}/>
+            </div>
+<div className = "form-group">
+            <button className="btn submit">Submit</button>
+            </div>
+            <div className = "form-group">
+            <button className="btn cancel" onClick={()=>this.setState({modalIsOpen:false})}>Cancel</button>
+            </div>
           </form>
-          <br/>
-            <br/>
-
-          <button className="ModalButtons" onClick={()=>this.setState({modalIsOpen:false})}>Cancel</button>
-            <h1>Preview</h1>
-            <img src={this.state.rejection_url} alt="rejection" height="200vh" width="200vw"/>
         </Modal>
         <Fade right duration={1000}>
 
         <div className="rejectionsDiv">
-          <h1 className="rejectionHeader">Rejections</h1>
+          <h1 className="rejection-header">Rejections</h1>
           {this.state.user ? (
             <ProfileRejectionContainer
               rejections={this.props.user.rejections}
-
               reRender={this.getProfile}
             />
           ) : null}
