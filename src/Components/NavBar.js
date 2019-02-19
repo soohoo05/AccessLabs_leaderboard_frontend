@@ -6,18 +6,27 @@ import {Button} from 'react-bootstrap'
 class NavBar extends React.Component {
   logout = () => {
     //to do: get rid of token
-    console.log("a")
      localStorage.removeItem("token")
      this.props.deleteUser()
     this.props.history.replace('/')
   }
-
+renderAdmin = () =>{
+  if(this.props.user){
+    if(this.props.user.username==="Admin"){
+      return(
+        <div className="adminButtons">
+        <button className="btn btn-outline-secondary" onClick={()=>this.props.history.replace('/AddCohort')}>Add Cohort</button>
+        <button className="btn btn-outline-secondary">Latest Rejections</button>
+        </div>
+      )
+    }
+  }
+}
   render() {
-    console.log(this.props.user)
     return (
         <nav className="navbar navbar-expand-lg navbar-default">
         <NavLink to ="/" className="navbar-brand" style={{color:'white'}}>Access Labs Leaderboard</NavLink>
-
+        {this.renderAdmin()}
           {this.props.user ?
                <div className = "top-right-buttons">
 

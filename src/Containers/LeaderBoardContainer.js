@@ -38,7 +38,11 @@ class LeaderBoardContainer extends React.Component {
 
     renderLeaderboardRow = () =>{
         let i = 1
-        return this.state.users.map(user => <LeaderBoardUser rank = {i++} user = {user} key={user.id}/>)
+        return this.state.users.map(user => {
+          if(user.username !=="Admin"){
+          return <LeaderBoardUser rank = {i++} user = {user} key={user.id}/>
+          }
+        })
     }
 
   render () {

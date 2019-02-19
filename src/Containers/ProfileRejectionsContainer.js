@@ -27,7 +27,6 @@ class ProfileRejectionContainer extends React.Component {
     let rejections
     if(this.props.rejections){
     rejections = this.props.rejections.map(rejection => (
-
       <Rejection
         aRejection={rejection}
         key={rejection.id}

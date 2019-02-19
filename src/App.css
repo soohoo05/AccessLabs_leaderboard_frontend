@@ -392,6 +392,27 @@ text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
     background-color: #0050cb;
     border:none;
 }
+<<<<<<< HEAD
+.adminButtons{
+  display: inline-flex;
+  position: absolute;
+}
+#Num1{
+  background: linear-gradient(to bottom, white, gold);
+      color: black;
+}
+#Num2{
+  background: #e2e2e2;
+  background: -moz-linear-gradient(top,  #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%);
+  background: -ms-linear-gradient(top,  #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%);
+  background: linear-gradient(to bottom,  #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%);
+
+}
+#Num3{
+
+  background: linear-gradient(to bottom, #be7023,#CD7F32);
+      color: black;
+=======
 
 .submit{
     margin-top: 5vh;
@@ -399,4 +420,5 @@ text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
 .rejection-form{
     height:100%;
      overflow-x: auto;
+>>>>>>> a3eeccae97f51bc47c314f77d01340219894925c
 }
