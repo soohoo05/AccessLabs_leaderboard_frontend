@@ -44,8 +44,8 @@ class Profile extends React.Component {
     var myUploadWidget;
     myUploadWidget = window.cloudinary.openUploadWidget(
       {
-        cloudName: "dz1dbcszc",
-        uploadPreset: "igzkbflf"
+        cloudName: "drxxuymxa",
+        uploadPreset: "o8bboijd"
       },
       (error, result) => {
         if (result.info.secure_url) {
@@ -53,6 +53,8 @@ class Profile extends React.Component {
           rejection_url:result.info.secure_url,
           modalIsOpen:true
         })
+        }
+        else{
         }
       }
     );
