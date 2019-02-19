@@ -91,7 +91,7 @@ class SignUp extends React.Component {
 
         <div className = "container">
         <div className = "form-container">
-          <Fade duration={3000}>
+          <Fade duration={900}>
         <div className="login-form">
         {this.state.errors ? <h1>{this.state.errors}</h1> : null}
         {!this.state.next ? (
@@ -102,7 +102,7 @@ class SignUp extends React.Component {
           />
         ) : null}
         {this.state.next ? (
-          <Fade duration={2500}>
+          <Fade right duration={1000}>
           <SecondSignUpForm
             changeHandler={this.changeHandler}
             backHandler={this.backHandler}

@@ -22,7 +22,7 @@ export const signUp = (user, history) => {
   };
 };
 
-export const signIn = (user) => {
+export const signIn = (user,history) => {
     return function thunk(dispatch) {
       return fetch("http://localhost:3000/api/v1/login", {
         method: "POST",
@@ -41,6 +41,7 @@ export const signIn = (user) => {
           localStorage.setItem("token", res.jwt);
 
           dispatch(logIn(res.user.user));
+          history.replace(`/User/${res.user.user.username}`)
         });
     };
   };

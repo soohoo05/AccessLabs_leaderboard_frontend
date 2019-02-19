@@ -104,7 +104,7 @@ class Profile extends React.Component {
     console.log(this.state.user.rejections)
     return (
       <React.Fragment>
-        <Fade left duration={2000}>
+        <Fade left duration={1000}>
         <div className="leftProfile">
         <img
           src={this.state.user.avatar}
@@ -146,7 +146,7 @@ class Profile extends React.Component {
             <h1>Preview</h1>
             <img src={this.state.rejection_url} alt="rejection" height="200vh" width="200vw"/>
         </Modal>
-        <Fade right duration={2000}>
+        <Fade right duration={1000}>
 
         <div className="rejectionsDiv">
           <h1 className="rejectionHeader">Rejections</h1>

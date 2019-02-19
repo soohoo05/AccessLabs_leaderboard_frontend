@@ -59,7 +59,7 @@ class SecondSignUpForm extends React.Component {
     <div className = "form-group">
         <button
         onClick={() => backHandler()}
-        className="btn btn-primary btn-block"
+        className="btn btn-primary btn-block sec"
         >
             Back
         </button>
