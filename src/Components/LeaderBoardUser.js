@@ -27,12 +27,13 @@ class LeaderBoardUser extends React.Component {
   }
   }
   render () {
-    return <TableRow>
-                <CustomTableCell align="left">{this.props.rank}</CustomTableCell>
-                <CustomTableCell align="left"><img alt="profile" src = {this.props.user.avatar} className = "leaderboard-avatar"/>{this.props.user.username}</CustomTableCell>
-                <CustomTableCell align="left">{this.props.user.cohort_name}</CustomTableCell>
-                <CustomTableCell align="left">{this.props.user.rejections.length}</CustomTableCell>
-                <CustomTableCell align="left"><button onClick={()=>this.changeHistory()}>Profile</button></CustomTableCell>
+    let classNum=`Num${this.props.rank}`
+    return <TableRow id={classNum}>
+                <CustomTableCell id={classNum} align="left" >{this.props.rank}</CustomTableCell>
+                <CustomTableCell id={classNum} align="left"><img alt="profile" src = {this.props.user.avatar} className = "leaderboard-avatar"/>{this.props.user.username}</CustomTableCell>
+                <CustomTableCell id={classNum} align="left">{this.props.user.cohort_name}</CustomTableCell>
+                <CustomTableCell id={classNum} align="left">{this.props.user.rejections.length}</CustomTableCell>
+                <CustomTableCell id={classNum} align="left"><button onClick={()=>this.changeHistory()}>Profile</button></CustomTableCell>
 
             </TableRow>
       }
