@@ -21,7 +21,7 @@ class SignIn extends React.Component {
   render () {
     return (
         <div className = "container">
-          <Fade duration={3000}>
+          <Fade duration={900}>
             <div className = "signup-container">
                 <div className = "form-container">
                     <div className="login-form">
