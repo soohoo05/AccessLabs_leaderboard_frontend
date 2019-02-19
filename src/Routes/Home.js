@@ -5,10 +5,10 @@ class Home extends React.Component {
   render () {
     return (
       <div className = "home-container">
-        <Fade top duration={3000}>
+        <Fade top duration={1000}>
       <h1>Access Labs Leaderboard</h1>
       </Fade>
-      <Fade duration={3000}>
+      <Fade duration={1500}>
       <LeaderBoardContainer/>
       </Fade>
 
