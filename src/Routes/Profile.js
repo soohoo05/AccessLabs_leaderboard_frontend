@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 import { makeRejection } from "../Actions/UserActions";
-
+import Fade from 'react-reveal/Fade';
 class Profile extends React.Component {
   state = {
     display: false,
@@ -46,6 +46,7 @@ class Profile extends React.Component {
   renderProfile = () => {
     return (
       <React.Fragment>
+        <Fade left duration={2000}>
         <div className="leftProfile">
         <img
           src={this.state.user.avatar}
@@ -56,9 +57,10 @@ class Profile extends React.Component {
           Name: {this.state.user.f_name} {this.state.user.l_name}
         </h1>
         <h1 className="profileH1">Username: {this.state.user.username}</h1>
-        <h1 className="profileH1">Email: {this.state.user.email}</h1>
         <h1 className="profileH1">Cohort Name: {this.state.user.cohort_name}</h1>
         </div>
+      </Fade>
+      <Fade right duration={2000}>
 
         <div className="rejectionsDiv">
           <h1 className="rejectionHeader">Rejections</h1>
@@ -70,6 +72,8 @@ class Profile extends React.Component {
             />
           ) : null}
         </div>
+      </Fade>
+
       </React.Fragment>
     );
   };

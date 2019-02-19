@@ -2,8 +2,15 @@ import React from 'react'
 import { signIn } from "../Actions/UserActions";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import Fade from 'react-reveal/Fade';
 
 class SignIn extends React.Component {
+  componentDidMount(){
+    let token = localStorage.getItem("token");
+    if(token){
+      this.props.history.replace(`/`)
+    }
+  }
     state = {
         username : "",
         password: ""
@@ -18,9 +25,9 @@ class SignIn extends React.Component {
         this.props.signIn(this.state)
     }
   render () {
-      console.log(this.props)
     return (
         <div className = "container">
+          <Fade duration={3000}>
             <div className = "signup-container">
                 <div className = "form-container">
                     <div className="login-form">
@@ -47,6 +54,7 @@ class SignIn extends React.Component {
                 </div>
 
             </div>
+          </Fade>
         </div>
     )
   }

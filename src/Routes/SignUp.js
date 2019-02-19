@@ -4,6 +4,8 @@ import SecondSignUpForm from "../Forms/SecondSignUpForm";
 import { signUp } from "../Actions/UserActions";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import Fade from 'react-reveal/Fade';
+
 class SignUp extends React.Component {
   state = {
     f_name: "",
@@ -18,6 +20,12 @@ class SignUp extends React.Component {
     avatar:
       "https://banner2.kisspng.com/20180406/xxw/kisspng-user-profile-facebook-clip-art-passport-5ac82fb9a13376.6053831915230688576603.jpg"
   };
+  componentDidMount(){
+    let token = localStorage.getItem("token");
+    if(token){
+      this.props.history.replace(`/`)
+    }
+  }
   changeHandler = e => {
     this.setState({
       [e.target.name]: e.target.value
@@ -45,7 +53,8 @@ class SignUp extends React.Component {
       next: false
     });
   };
-  submitHandler = () => {
+  submitHandler = (e) => {
+    e.preventDefault()
     if (
       this.state.f_name.length === 0 ||
       this.state.l_name.length === 0 ||
@@ -67,8 +76,8 @@ class SignUp extends React.Component {
     var myUploadWidget;
     myUploadWidget = window.cloudinary.openUploadWidget(
       {
-        cloudName: "dz1dbcszc",
-        uploadPreset: "igzkbflf"
+        cloudName: "drxxuymxa",
+        uploadPreset: "o8bboijd"
       },
       (error, result) => {
         if (result.info.secure_url) {
@@ -82,6 +91,7 @@ class SignUp extends React.Component {
 
         <div className = "container">
         <div className = "form-container">
+          <Fade duration={3000}>
         <div className="login-form">
         {this.state.errors ? <h1>{this.state.errors}</h1> : null}
         {!this.state.next ? (
@@ -92,6 +102,7 @@ class SignUp extends React.Component {
           />
         ) : null}
         {this.state.next ? (
+          <Fade duration={2500}>
           <SecondSignUpForm
             changeHandler={this.changeHandler}
             backHandler={this.backHandler}
@@ -99,9 +110,10 @@ class SignUp extends React.Component {
             state={this.state}
             submitHandler={this.submitHandler}
           />
-
+      </Fade>
         ) : null}
         </div>
+      </Fade>
       </div>
       </div>
 
