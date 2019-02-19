@@ -16,7 +16,7 @@ export const signUp = (user, history) => {
       .then(json => {
         localStorage.setItem("token", json.data.jwt);
         dispatch({ type: "SET_USER", payload: json.data.user.user });
-        history.replace(`/User/${json.data.user.user.username}`)
+        history.replace(`/`)
       })
       .catch(error => alert("User already made or field(s) were left blank"));
   };
@@ -41,7 +41,7 @@ export const signIn = (user,history) => {
           localStorage.setItem("token", res.jwt);
 
           dispatch(logIn(res.user.user));
-          history.replace(`/User/${res.user.user.username}`)
+          history.replace(`/`)
         });
     };
   };

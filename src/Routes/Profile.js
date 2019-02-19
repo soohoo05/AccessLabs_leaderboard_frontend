@@ -53,17 +53,17 @@ class Profile extends React.Component {
           alt="avatar"
           className="avatarOnProfile"
         />
-        <h1 className="profileH1">
+        <h1>
           Name: {this.state.user.f_name} {this.state.user.l_name}
         </h1>
-        <h1 className="profileH1">Username: {this.state.user.username}</h1>
-        <h1 className="profileH1">Cohort Name: {this.state.user.cohort_name}</h1>
+        <h1>Username: {this.state.user.username}</h1>
+        <h1 >Cohort Name: {this.state.user.cohort_name}</h1>
         </div>
       </Fade>
       <Fade right duration={1000}>
 
         <div className="rejectionsDiv">
-          <h1 className="rejectionHeader">Rejections</h1>
+          <h1>Rejections</h1>
           {this.state.user.rejections ? (
             <ProfileRejectionContainer
               rejections={this.state.user.rejections}
