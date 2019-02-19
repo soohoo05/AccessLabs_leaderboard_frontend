@@ -2,10 +2,7 @@ import React from "react";
 import CohortSelect from "./CohortSelect";
 import { CloudinaryContext } from "cloudinary-react";
 class SecondSignUpForm extends React.Component {
-  cloud = (e) => {
 
-    this.props.imageSubmit()
-  }
   render() {
     let {
       changeHandler,
@@ -49,7 +46,7 @@ class SecondSignUpForm extends React.Component {
             id="upload_widget_opener"
             onClick={(e)=>{
                 e.preventDefault()
-                this.cloud()}
+                this.props.imageSubmit()}
             }
             className="btn btn-primary btn-block"
           >
