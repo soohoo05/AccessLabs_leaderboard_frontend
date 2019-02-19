@@ -32,22 +32,21 @@ class SignUp extends React.Component {
     });
   };
   nextHandler = () => {
-      console.log("hello")
-    // if (this.state.password !== this.state.passwordConfirmation) {
-    //   this.setState({
-    //     errors: "Password and Password Confirmation do not match!"
-    //   });
-    // } else if (
-    //   this.state.username.length === 0 ||
-    //   this.state.email.length === 0 ||
-    //   this.state.password.length === 0
-    // ) {
-    //   this.setState({ errors: "Fields cannot be left Blank!" });
-    // } else {
-    //   this.setState({
-    //     next: true
-    //   });
-    // }
+    if (this.state.password !== this.state.passwordConfirmation) {
+      this.setState({
+        errors: "Password and Password Confirmation do not match!"
+      });
+    } else if (
+      this.state.username.length === 0 ||
+      this.state.email.length === 0 ||
+      this.state.password.length === 0
+    ) {
+      this.setState({ errors: "Fields cannot be left Blank!" });
+    } else {
+      this.setState({
+        next: true
+      });
+    }
   };
   backHandler = () => {
     this.setState({

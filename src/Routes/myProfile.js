@@ -124,12 +124,21 @@ class Profile extends React.Component {
 
     <h1 >Rejection</h1>
           <form className="rejection-form" onSubmit={(e)=>this.submitHandler(e)}>
-            {this.state.errors ? <h1 className="ModalError">{this.state.errors}</h1> :null}
         <div className = "form-group">
-            <input className="form-control" type="text" placeholder="Company Name" name="company" onChange={(e)=>this.changeHandler(e)} value={this.state.company}/>
+            <input className="form-control"
+            type="text" placeholder="Company Name"
+            name="company"
+            onChange={(e)=>this.changeHandler(e)}
+            value={this.state.company}
+            required = "required"/>
         </div>
         <div className = "form-group">
-            <input className="form-control" type="text" placeholder="Stage of rejection" name="stage_of_rejection" onChange={(e)=>this.changeHandler(e)} value={this.state.stage_of_rejection}/>
+            <input className="form-control"
+            type="text"
+            placeholder="Stage of rejection"
+            name="stage_of_rejection"
+            onChange={(e)=>this.changeHandler(e)} value={this.state.stage_of_rejection}
+            required = "required"/>
             </div>
 <div className = "form-group">
             <button className="btn submit">Submit</button>
