@@ -18,7 +18,7 @@ class SignUp extends React.Component {
     next: false,
     errors: "",
     avatar:
-      "https://banner2.kisspng.com/20180406/xxw/kisspng-user-profile-facebook-clip-art-passport-5ac82fb9a13376.6053831915230688576603.jpg"
+      "https://pbs.twimg.com/profile_images/1015986429653118976/Pokt3Hfh_400x400.jpg"
   };
   componentDidMount(){
     let token = localStorage.getItem("token");
@@ -50,7 +50,8 @@ class SignUp extends React.Component {
     if (
       this.state.username.length === 0 ||
       this.state.email.length === 0 ||
-      this.state.password.length === 0
+      this.state.password.length === 0 ||
+      this.state.passwordConfirmation.length === 0
     ) {
       this.setState({ errors: "Fields cannot be left Blank!" });
     } else {
