@@ -1,6 +1,7 @@
 import React from "react";
 
 class FirstSignUpForm extends React.Component {
+    
   render() {
       console.log(this.props)
     let { state, changeHandler, nextHandler } = this.props;
@@ -56,7 +57,7 @@ class FirstSignUpForm extends React.Component {
         />
         </div>
         <button
-        onClick={() => nextHandler()}
+        onClick={(e) => nextHandler(e)}
         className="btn btn-primary btn-block"
         >
             Next

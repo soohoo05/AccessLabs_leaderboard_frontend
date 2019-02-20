@@ -25,10 +25,11 @@ body{
   transform: translate(-50%, -50%);
 }
 .rejection-modal h1{
+    font-size: 5vh;
     margin-bottom: 5vh;
 }
 .rejection-modal button{
-    width:50%;
+    width:10vw;
 }
 .rejection-modal button:hover{
     background-color: lightgray;
@@ -392,7 +393,7 @@ text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
     background-color: #0050cb;
     border:none;
 }
-<<<<<<< HEAD
+
 .adminButtons{
   display: inline-flex;
   position: absolute;
@@ -412,13 +413,13 @@ text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
 
   background: linear-gradient(to bottom, #be7023,#CD7F32);
       color: black;
-=======
 
+}
 .submit{
     margin-top: 5vh;
 }
 .rejection-form{
     height:100%;
      overflow-x: auto;
->>>>>>> a3eeccae97f51bc47c314f77d01340219894925c
+
 }

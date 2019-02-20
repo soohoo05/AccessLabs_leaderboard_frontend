@@ -93,7 +93,6 @@ class SignUp extends React.Component {
         <div className = "form-container">
           <Fade duration={900}>
         <div className="login-form">
-        {this.state.errors ? <h1>{this.state.errors}</h1> : null}
         {!this.state.next ? (
           <FirstSignUpForm
             changeHandler={this.changeHandler}
