@@ -16,7 +16,7 @@ renderAdmin = () =>{
       return(
         <div className="adminButtons">
         <button className="btn btn-outline-secondary" onClick={()=>this.props.history.replace('/AddCohort')}>Add Cohort</button>
-        <button className="btn btn-outline-secondary">Latest Rejections</button>
+        <button className="btn btn-outline-secondary" onClick={()=>this.props.history.replace('/Rejections')}>Latest Rejections</button>
         </div>
       )
     }

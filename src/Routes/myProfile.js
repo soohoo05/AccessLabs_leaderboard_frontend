@@ -66,8 +66,11 @@ class Profile extends React.Component {
           className="btn"
           color="black"
           id="upload_widget_opener"
-          onClick={() => this.imageSubmit()}
-        >
+          onClick={(e)=>{
+              e.preventDefault()
+              this.imageSubmit()}
+            }
+          >
           Upload a picture
         </button>
       </CloudinaryContext>

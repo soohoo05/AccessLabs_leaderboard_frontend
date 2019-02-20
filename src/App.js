@@ -7,6 +7,7 @@ import Profile from "./Routes/Profile";
 import myProfile from "./Routes/myProfile";
 import SignIn from "./Routes/SignIn";
 import SignUp from "./Routes/SignUp";
+import Rejections from "./Routes/Rejections";
 import AddCohort from "./Forms/AddCohort"
 import { connect } from "react-redux";
 
@@ -38,6 +39,7 @@ class App extends Component {
           <Route exact path="/user/:Username" component={Profile} />
           <Route exact path="/profile/:Username" component={myProfile}/>
           <Route exact path="/AddCohort" component={AddCohort}/>
+          <Route exact path="/Rejections" component={Rejections}/>
         </Switch>
       </React.Fragment>
     );
