@@ -60,7 +60,7 @@ class LeaderBoardContainer extends React.Component {
                 </TableRow>
             </TableHead>
             <TableBody>
-                {this.state.users ? this.renderLeaderboardRow() : null}
+                {this.state.users.length!==0 ? this.renderLeaderboardRow() : null}
             </TableBody>
         </Table>
         </Paper>

@@ -176,7 +176,7 @@ transform: translateY(-50%);
   margin-left: 10vh;
   width:40vw;
   height:60vh;
-  text-align: left;
+  text-align: center;
   color:black;
 }
 .left-profile h1{
@@ -415,9 +415,7 @@ text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
       color: black;
 
 }
-.submit{
-    margin-top: 5vh;
-}
+
 .rejection-form{
     height:100%;
      overflow-x: auto;

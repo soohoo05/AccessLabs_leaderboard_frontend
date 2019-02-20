@@ -51,7 +51,7 @@ class Profile extends React.Component {
         if (result.info.secure_url) {
         this.setState({
           rejection_url:result.info.secure_url,
-          modalIsOpen:true
+
         })
         }
         else{
@@ -63,12 +63,12 @@ class Profile extends React.Component {
     return (
       <CloudinaryContext cloudName="dz1dbcszc" className="signupbuttons">
         <button
-          className="rejectionButton"
+          className="btn"
           color="black"
           id="upload_widget_opener"
           onClick={() => this.imageSubmit()}
         >
-          Upload a Rejection
+          Upload a picture
         </button>
       </CloudinaryContext>
     );
@@ -100,6 +100,7 @@ class Profile extends React.Component {
         errors:""})
     }
   }
+
   renderProfile = () => {
     console.log(this.state.user.rejections)
     return (
@@ -116,10 +117,18 @@ class Profile extends React.Component {
         </h1>
         <h1>Username: {this.props.user.username}</h1>
         <h1>Cohort Name: {this.props.user.cohort_name}</h1>
-        {this.renderCloudinary()}
+        <button
+          className="rejectionButton"
+          color="black"
+          id="upload_widget_opener"
+          onClick={() => this.setState({modalIsOpen:true})}
+        >
+          Upload a Rejection
+        </button>
       </div>
     </Fade>
-        <Modal  className="rejection-modal" isOpen={this.state.modalIsOpen} style={{overlay:{ backgroundColor: 'rgba(0, 0, 0, 0.9)'
+
+        <Modal  className="rejection-modal " isOpen={this.state.modalIsOpen} style={{overlay:{ backgroundColor: 'rgba(0, 0, 0, 0.9)'
     }}}>
 
     <h1 >Rejection</h1>
@@ -140,6 +149,11 @@ class Profile extends React.Component {
             onChange={(e)=>this.changeHandler(e)} value={this.state.stage_of_rejection}
             required = "required"/>
             </div>
+            <div className = "form-group">
+
+            {this.renderCloudinary()}
+          </div>
+
 <div className = "form-group">
             <button className="btn submit">Submit</button>
             </div>
