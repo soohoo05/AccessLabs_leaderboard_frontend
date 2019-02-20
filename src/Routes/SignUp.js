@@ -32,21 +32,22 @@ class SignUp extends React.Component {
     });
   };
   changeHandlerPass = e => {
+      let msg = e.target
     this.setState({
       [e.target.name]: e.target.value
+  }, () =>{
+      if (this.state.password !== this.state.passwordConfirmation) {
+          msg.setCustomValidity("Passwords do not match")
+          msg.reportValidity()
+      }else if(this.state.password === this.state.passwordConfirmation) {
+          msg.setCustomValidity("")
+          msg.reportValidity()
+      }
   })
-     if (e.target.value !== this.state.password) {
-         e.target.setCustomValidity("Passwords don't match")
-         e.target.reportValidity()
-     }
 
   };
   nextHandler = () => {
-    if (this.state.password !== this.state.passwordConfirmation) {
-      this.setState({
-        errors: "Password and Password Confirmation do not match!"
-      });
-    } else if (
+    if (
       this.state.username.length === 0 ||
       this.state.email.length === 0 ||
       this.state.password.length === 0
