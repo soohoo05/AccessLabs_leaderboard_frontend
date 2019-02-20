@@ -47,7 +47,7 @@ class Profile extends React.Component {
     return (
       <React.Fragment>
         <Fade left duration={1000}>
-        <div className="leftProfile">
+        <div className="left-profile">
         <img
           src={this.state.user.avatar}
           alt="avatar"
@@ -73,7 +73,6 @@ class Profile extends React.Component {
           ) : null}
         </div>
       </Fade>
-
       </React.Fragment>
     );
   };

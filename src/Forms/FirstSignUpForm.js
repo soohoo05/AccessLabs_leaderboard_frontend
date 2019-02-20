@@ -1,10 +1,9 @@
 import React from "react";
 
 class FirstSignUpForm extends React.Component {
-    
   render() {
       console.log(this.props)
-    let { state, changeHandler, nextHandler } = this.props;
+    let { state, changeHandler, nextHandler,changeHandlerPass } = this.props;
     return (
       <div className = "login-form">
 
@@ -51,7 +50,7 @@ class FirstSignUpForm extends React.Component {
           placeholder="Password Confirmation"
           value={state.passwordConfirmation}
           name="passwordConfirmation"
-          onChange={e => changeHandler(e)}
+          onChange={e => changeHandlerPass(e)}
           className="form-control"
           required="required"
         />

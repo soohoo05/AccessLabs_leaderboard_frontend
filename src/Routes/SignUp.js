@@ -31,6 +31,16 @@ class SignUp extends React.Component {
       [e.target.name]: e.target.value
     });
   };
+  changeHandlerPass = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+  })
+     if (e.target.value !== this.state.password) {
+         e.target.setCustomValidity("Passwords don't match")
+         e.target.reportValidity()
+     }
+
+  };
   nextHandler = () => {
     if (this.state.password !== this.state.passwordConfirmation) {
       this.setState({
@@ -93,11 +103,13 @@ class SignUp extends React.Component {
         <div className = "form-container">
           <Fade duration={900}>
         <div className="login-form">
+
         {!this.state.next ? (
           <FirstSignUpForm
             changeHandler={this.changeHandler}
             nextHandler={this.nextHandler}
             state={this.state}
+            changeHandlerPass = {this.changeHandlerPass}
           />
         ) : null}
         {this.state.next ? (
