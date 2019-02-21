@@ -10,7 +10,7 @@ export default function UserReducer ( state = store, action) {
     case "SIGN_IN":
         return { ...state, user: action.payload }
         case "DELETE_USER":
-        console.log("du")
+        
      return { ...state, user: "" }
     default:
       return state;

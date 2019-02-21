@@ -3,7 +3,7 @@
 //actual fetch command
 export const loadLeaderboard = leaderboard => {
     return function thunk(dispatch){
-        return fetch('http://localhost:3000/api/v1/users')
+        return fetch('https://leaderboard-backend.herokuapp.com/api/v1/users')
         .then(r => r.json())
         .then(leaderboard => dispatch(getLeaderboard(leaderboard)))
     }

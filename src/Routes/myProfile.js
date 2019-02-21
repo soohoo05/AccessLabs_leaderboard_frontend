@@ -25,7 +25,7 @@ class Profile extends React.Component {
   getProfile = () =>{
     let theUsername = this.props.history.location.pathname.split("/")[2];
     let token = localStorage.getItem("token");
-    axios.get("http://localhost:3000/api/v1/profile", {
+    axios.get("https://leaderboard-backend.herokuapp.com/api/v1/profile", {
         headers: {
           Authorization: token
         },
@@ -105,7 +105,7 @@ class Profile extends React.Component {
   }
 
   renderProfile = () => {
-    console.log(this.state.user.rejections)
+
     return (
       <React.Fragment>
         <Fade left duration={1000}>

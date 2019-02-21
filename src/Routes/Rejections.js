@@ -6,7 +6,7 @@ class Rejections extends React.Component {
     rejections:[]
   }
   componentDidMount(){
-    axios.get('http://localhost:3000/api/v1/rejections')
+    axios.get('https://leaderboard-backend.herokuapp.com/api/v1/rejections')
     .then(res=>{
       this.setState({
         rejections:res.data

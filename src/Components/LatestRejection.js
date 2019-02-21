@@ -25,7 +25,7 @@ class LatestRejection extends React.Component {
   }
   render() {
     let { aRejection } = this.props;
-    console.log(aRejection)
+    
     return (
       <TableRow>
         <CustomTableCell>{aRejection.company}</CustomTableCell>

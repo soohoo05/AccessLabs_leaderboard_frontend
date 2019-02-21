@@ -15,7 +15,7 @@ class App extends Component {
   componentDidMount = () => {
     let token = localStorage.getItem("token");
     if (token) {
-      fetch("http://localhost:3000/api/v1/current_user", {
+      fetch("https://leaderboard-backend.herokuapp.com/api/v1/current_user", {
         headers: {
           "Content-Type": "application/json",
           Accepts: "application/json",

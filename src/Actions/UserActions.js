@@ -10,7 +10,7 @@ export const logIn = user => {
 export const signUp = (user, history) => {
   return dispatch => {
     return axios
-      .post(`http://localhost:3000/api/v1/users`, {
+      .post(`https://leaderboard-backend.herokuapp.com/api/v1/users`, {
         user
       })
       .then(json => {
@@ -24,7 +24,7 @@ export const signUp = (user, history) => {
 
 export const signIn = (user,history) => {
     return function thunk(dispatch) {
-      return fetch("http://localhost:3000/api/v1/login", {
+      return fetch("https://leaderboard-backend.herokuapp.com/api/v1/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -38,17 +38,21 @@ export const signIn = (user,history) => {
       })
         .then(r => r.json())
         .then(res => {
-          localStorage.setItem("token", res.jwt);
+            if(res.jwt !== undefined){
+                localStorage.setItem("token", res.jwt);
 
-          dispatch(logIn(res.user.user));
-          history.replace(`/`)
-        });
+                dispatch(logIn(res.user.user));
+                history.replace(`/`)
+            }else{
+                alert("Combination was Wrong")
+            }
+        })
     };
   };
 
 export const makeRejection = (theRejection) => {
   return dispatch => {
-    return axios.post(`http://localhost:3000/api/v1/rejections`,{
+    return axios.post(`https://leaderboard-backend.herokuapp.com//api/v1/rejections`,{
       params:{
         rejection:theRejection
       }
@@ -62,9 +66,8 @@ export const makeRejection = (theRejection) => {
 
 export const destroyRejection = (theRejection)=>{
   return dispatch =>{
-    return axios.delete(`http://localhost:3000/api/v1/rejections/${theRejection.id}`)
+    return axios.delete(`https://leaderboard-backend.herokuapp.com/api/v1/rejections/${theRejection.id}`)
       .then(json=>{
-        console.log(json)
         dispatch({ type: "SET_USER", payload: json.data.user });
       })
   }

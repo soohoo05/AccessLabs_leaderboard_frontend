@@ -5,7 +5,7 @@ class CohortSelect extends React.Component {
     cohorts:[]
   }
   componentDidMount(){
-    axios.get(`http://localhost:3000/api/v1/cohorts`)
+    axios.get(`https://leaderboard-backend.herokuapp.com/api/v1/cohorts`)
     .then(res=>{
       this.setState({
         cohorts:res.data
@@ -13,6 +13,7 @@ class CohortSelect extends React.Component {
     })
   }
   render() {
+
     let { cohort, changeHandler } = this.props;
     let names=this.state.cohorts.map(cohort=> <option value={cohort.name} key={cohort.id}>{cohort.name}</option>)
     return (

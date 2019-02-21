@@ -2,7 +2,7 @@ import React from "react";
 
 class FirstSignUpForm extends React.Component {
   render() {
-      console.log(this.props)
+      
     let { state, changeHandler, nextHandler,changeHandlerPass } = this.props;
     return (
       <div className = "login-form">

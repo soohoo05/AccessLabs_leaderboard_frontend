@@ -11,7 +11,7 @@ class AddCohort extends React.Component {
   };
   submitHandler = e =>{
     e.preventDefault()
-    axios.post('http://localhost:3000/api/v1/cohorts',{
+    axios.post('https://leaderboard-backend.herokuapp.com/api/v1/cohorts',{
         name:this.state.name
     })
     .then(res =>{

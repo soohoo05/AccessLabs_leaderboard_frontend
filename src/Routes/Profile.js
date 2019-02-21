@@ -1,5 +1,5 @@
 import React from "react";
-import ProfileRejectionContainer from "../Containers/ProfileRejectionsContainer";
+import UserRejectionsContainer from "../Containers/UserRejectionsContainer";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
@@ -25,7 +25,7 @@ class Profile extends React.Component {
 
     let theUsername = this.props.history.location.pathname.split("/")[2];
     let token = localStorage.getItem("token");
-    axios.get("http://localhost:3000/api/v1/profile", {
+    axios.get("https://leaderboard-backend.herokuapp.com/api/v1/profile", {
         headers: {
           Authorization: token
         },
@@ -65,7 +65,7 @@ class Profile extends React.Component {
         <div className="rejectionsDiv">
           <h1>Rejections</h1>
           {this.state.user.rejections ? (
-            <ProfileRejectionContainer
+            <UserRejectionsContainer
               rejections={this.state.user.rejections}
 
               reRender={this.getProfile}

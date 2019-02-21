@@ -31,7 +31,7 @@ class LeaderBoardContainer extends React.Component {
 
     componentDidMount(){
         this.props.loadLeaderboard()
-        fetch('http://localhost:3000/api/v1/users')
+        fetch('https://leaderboard-backend.herokuapp.com/api/v1/users')
         .then(resp => resp.json())
         .then(users => this.setState({users}))
     }

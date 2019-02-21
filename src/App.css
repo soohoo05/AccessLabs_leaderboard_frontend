@@ -1,6 +1,8 @@
-body{
-    overflow:hidden;
-
+html{
+     overflow:   scroll;
+}::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
 }
 .avatarOnProfile{
   height:500px;
@@ -384,6 +386,8 @@ text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    width: 100vw;
+    height: 100vh;
 }
 .btn-success{
     width:50%;
@@ -413,7 +417,9 @@ text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
 }
 #Num3{
 
-  background: linear-gradient(to bottom, #be7023,#CD7F32);
+ background-image: -webkit-linear-gradient(#aa5b25, #b06633, #b57040, #bb7b4e, #c0855c);
+ background-image: -o-linear-gradient(#aa5b25, #b06633, #b57040, #bb7b4e, #c0855c);
+ background-image: linear-gradient(#aa5b25, #b06633, #b57040, #bb7b4e, #c0855c);
       color: black;
 
 }

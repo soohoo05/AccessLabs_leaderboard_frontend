@@ -24,7 +24,6 @@ class Rejection extends React.Component {
     this.props.reRender()
   }
   render() {
-    console.log(this.props.history.location.pathname.split('/')[1])
     let { aRejection } = this.props;
     return (
       <TableRow>
