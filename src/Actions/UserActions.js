@@ -72,3 +72,14 @@ export const destroyRejection = (theRejection)=>{
       })
   }
 }
+export const DeleteUser = (userId,history) =>{
+  return dispatch => {
+    return axios
+      .delete(`https://leaderboard-backend.herokuapp.com/api/v1/users/${userId}`)
+      .then(json=> {
+        dispatch({type:"DELETE_USER"})
+        history.replace('/')
+        localStorage.clear()
+      })
+  }
+}

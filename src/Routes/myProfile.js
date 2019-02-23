@@ -9,16 +9,17 @@ import { makeRejection } from "../Actions/UserActions";
 import Fade from 'react-reveal/Fade';
 
 class Profile extends React.Component {
-  state = {
-    display: false,
-    user: "",
-    ModalIsOpen:false,
-    company:"",
-    stage_of_rejection:"",
-    rejection_url:"http://www.quickmeme.com/img/1b/1bdd483c84e47993b5d0c4b6ff0d07da2bf2234c17ff3966b0078b0af9606560.jpg",
-    errors:"",
-    id:""
-  };
+    state = {
+       display: false,
+       user: "",
+       rejectionModalIsOpen: false,
+       deleteModalIsOpen: false,
+       company: "",
+       stage_of_rejection: "",
+       rejection_url: "",
+       errors: "",
+       id: ""
+     };
   componentDidMount() {
     this.getProfile()
   }
@@ -93,11 +94,11 @@ class Profile extends React.Component {
       delete copy["errors"]
       delete copy["display"]
       delete copy["user"]
-      delete copy["modalIsOpen"]
+      delete copy["rejectionModalIsOpen"]
       this.props.createRejection(copy)
       this.getProfile()
       this.setState({
-        modalIsOpen:false,
+        rejectionModalIsOpen:false,
         company:"",
         stage_of_rejection:"",
         errors:""})
@@ -124,14 +125,24 @@ class Profile extends React.Component {
           className="rejectionButton"
           color="black"
           id="upload_widget_opener"
-          onClick={() => this.setState({modalIsOpen:true})}
+          onClick={() => this.setState({ rejectionModalIsOpen: true })}
         >
           Upload a Rejection
+        </button>
+        <br />
+        <br />
+
+        <button
+          className="rejectionButton"
+          color="black"
+          onClick={() => this.setState({ deleteModalIsOpen: true })}
+        >
+          I got a Job!
         </button>
       </div>
     </Fade>
 
-        <Modal  className="rejection-modal " isOpen={this.state.modalIsOpen} style={{overlay:{ backgroundColor: 'rgba(0, 0, 0, 0.9)'
+        <Modal  className="rejection-modal " isOpen={this.state.rejectionModalIsOpen} style={{overlay:{ backgroundColor: 'rgba(0, 0, 0, 0.9)'
     }}}>
 
     <h1 >Rejection</h1>
