@@ -12,7 +12,7 @@ class NavBar extends React.Component {
   }
 renderAdmin = () =>{
   if(this.props.user){
-    if(this.props.user.username==="Admin"){
+    if(this.props.user.username==="admin"){
       return(
         <div className="adminButtons">
         <button className="btn btn-outline-secondary" onClick={()=>this.props.history.replace('/AddCohort')}>Add Cohort</button>
