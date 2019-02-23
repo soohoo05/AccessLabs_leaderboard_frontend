@@ -5,7 +5,7 @@ import { withRouter } from "react-router-dom";
 import axios from "axios";
 import { CloudinaryContext } from "cloudinary-react";
 import Modal from 'react-modal';
-import { makeRejection } from "../Actions/UserActions";
+import { makeRejection, DeleteUser } from "../Actions/UserActions";
 import Fade from 'react-reveal/Fade';
 
 class Profile extends React.Component {
@@ -141,7 +141,18 @@ class Profile extends React.Component {
         </button>
       </div>
     </Fade>
+    <Modal
+              className="rejection-modal"
+              isOpen={this.state.deleteModalIsOpen}
+              style={{ overlay: { backgroundColor: "rgba(0, 0, 0, 0.9)" } }}
+            >
+              <h1>Does that mean you would like to delete your profile?</h1>
+              <button className="btn" onClick={()=>this.props.deleteUser(this.state.user.id,this.props.history)}>Yes!</button>
+              <br />
+              <br />
 
+              <button className="btn" onClick={()=>this.setState({deleteModalIsOpen:false})}>No!</button>
+            </Modal>
         <Modal  className="rejection-modal " isOpen={this.state.rejectionModalIsOpen} style={{overlay:{ backgroundColor: 'rgba(0, 0, 0, 0.9)'
     }}}>
 
@@ -204,6 +215,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     createRejection : (rejectionObj) => {
       dispatch(makeRejection(rejectionObj))
+    },
+    deleteUser : (id,history) =>{
+      dispatch(DeleteUser(id,history))
     }
   }
 }
