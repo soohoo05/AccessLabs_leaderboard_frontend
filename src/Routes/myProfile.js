@@ -16,7 +16,7 @@ class Profile extends React.Component {
        deleteModalIsOpen: false,
        company: "",
        stage_of_rejection: "",
-       rejection_url: "",
+       rejection_url: "http://www.quickmeme.com/img/1b/1bdd483c84e47993b5d0c4b6ff0d07da2bf2234c17ff3966b0078b0af9606560.jpg",
        errors: "",
        id: ""
      };
