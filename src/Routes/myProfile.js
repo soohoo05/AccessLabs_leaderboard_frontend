@@ -183,7 +183,7 @@ class Profile extends React.Component {
             <button className="btn submit">Submit</button>
             </div>
             <div className = "form-group">
-            <button className="btn cancel" onClick={()=>this.setState({modalIsOpen:false})}>Cancel</button>
+            <button className="btn cancel" onClick={()=>this.setState({rejectionModalIsOpen:false})}>Cancel</button>
             </div>
           </form>
         </Modal>
