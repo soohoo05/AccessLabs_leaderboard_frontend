@@ -175,7 +175,7 @@ class Profile extends React.Component {
             required = "required"/>
             </div>
             <div className = "form-group">
-
+              <p>Note: Do your best to submit a picture without the employers name.</p>
             {this.renderCloudinary()}
           </div>
 
