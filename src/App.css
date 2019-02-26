@@ -1,5 +1,6 @@
 html{
      overflow:   scroll;
+     height: 100vh;
 }::-webkit-scrollbar {
     width: 0px;
     background: transparent; /* make scrollbar transparent */
@@ -11,6 +12,7 @@ html{
 }
 .ProfileRejectionContainer{
   background-color: #f5f5f5;
+  font-family: 'Oswald', sans-serif;
 }
 .rejection-modal{
   text-align: center;
@@ -171,6 +173,7 @@ transform: translateY(-50%);
   height:100vh;
   margin-left: -5vw;
   background-color: #f1f1f1;
+  fontFamily: 'Oswald, sans-serif;'
 
 }
 .left-profile{
@@ -178,17 +181,23 @@ transform: translateY(-50%);
   margin-left: 18vh;
   width:40vw;
   height:60vh;
-  text-align: center;
+  text-align: left;
   color:black;
+  font-family: 'Oswald, sans-serif;'
 }
 .left-profile h1{
-    font-size: 2em;
+    font-size: calc(1.5vw + 1.5vh + .5vmin);
+}
+.left-profile h2{
+    font-size: calc(1vw + 1vh + .5vmin);
 }
 .rejectionsDiv{
   margin-top: 5vh;
-
+  font-family: 'Merriweather', serif;
   width:50vw;
   text-align: center;
+  margin-right: 5vw;
+  margin-left: 5vw;
 }
 .profileH1{
   margin: 3vh;
@@ -200,6 +209,7 @@ text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
 .rejection-header{
   color:black;
   margin-bottom: 5vh;
+  font-family: 'Oswald', sans-serif;
 }
 .rejectionButton {
 	-moz-box-shadow:inset 0px -1px 0px 0px #ffffff;
@@ -275,18 +285,24 @@ text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
         font-size: 15px;
         font-weight: bold;
     }
-
+.home-container{
+    height:100vh;
+    width: 100vw;
+}
     .home-container h1{
         text-align: center;
         padding: 0;
         margin:0;
         margin-top: 50px;
+        font-family: 'Merriweather', serif;
+
     }
     .leaderboard{
         width: 80%;
         margin:auto;
         margin-top: 50px;
         margin-bottom: 50px;
+        font-family: 'Oswald', sans-serif;
 
     }
     .leaderboard button{
@@ -349,12 +365,15 @@ text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
     } */
     .navbar{
         background-color: #0084b2;
-        width:100%;
+        width:100vw;
         padding-bottom: 0;
         margin-bottom: 0;
         z-index: 10;
         border:0;
         border-radius: 0;
+    }
+    .navbar-brand{
+        font-family: 'Oswald', sans-serif;
     }
     .navbar-brand h2{
         color: #fff;
@@ -428,4 +447,15 @@ text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
     height:100%;
      overflow-x: auto;
 
+}
+footer{
+    position:fixed;
+    margin-bottom: 0;
+  bottom:0;
+  width:100%;
+	font-size: calc(.7vw + .5vh + .25vmin);
+text-align: left;
+}
+footer p{
+    margin-left: 12vw;
 }

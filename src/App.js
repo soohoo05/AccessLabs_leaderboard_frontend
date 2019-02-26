@@ -10,6 +10,7 @@ import SignUp from "./Routes/SignUp";
 import Rejections from "./Routes/Rejections";
 import AddCohort from "./Forms/AddCohort"
 import { connect } from "react-redux";
+import Footer from "./Components/Footer";
 
 class App extends Component {
   componentDidMount = () => {
@@ -29,9 +30,10 @@ class App extends Component {
     }
   };
   render() {
+      console.log('%cSite made by Matt Dizon & Tyler Soo Hoo ', 'color:  #0084b2;  font-size: 40px;');
     return (
       <React.Fragment>
-        <NavBar />
+        <NavBar/>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/SignIn" component={SignIn} />
@@ -41,7 +43,9 @@ class App extends Component {
           <Route exact path="/AddCohort" component={AddCohort}/>
           <Route exact path="/Rejections" component={Rejections}/>
         </Switch>
+        <Footer/>
       </React.Fragment>
+
     );
   }
 }

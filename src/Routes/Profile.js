@@ -56,8 +56,8 @@ class Profile extends React.Component {
         <h1>
           Name: {this.state.user.f_name} {this.state.user.l_name}
         </h1>
-        <h1>Username: {this.state.user.username}</h1>
-        <h1 >Cohort Name: {this.state.user.cohort_name}</h1>
+        <h2>Username: {this.state.user.username}</h2>
+        <h2>Cohort Name: {this.state.user.cohort_name}</h2>
         </div>
       </Fade>
       <Fade right duration={1000}>

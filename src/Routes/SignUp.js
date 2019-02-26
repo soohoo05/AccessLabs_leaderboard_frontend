@@ -25,6 +25,7 @@ class SignUp extends React.Component {
     if(token){
       this.props.history.replace(`/`)
     }
+    alert("Don't see your cohort name? Hit up Matthew Dizon or Tyler Soo Hoo on Slack")
   }
   changeHandler = e => {
     this.setState({

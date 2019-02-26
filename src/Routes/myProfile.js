@@ -117,10 +117,10 @@ class Profile extends React.Component {
           className="avatarOnProfile"
         />
         <h1>
-          Name: {this.props.user.f_name} {this.props.user.l_name}
+         Name: {this.props.user.f_name} {this.props.user.l_name}
         </h1>
-        <h1>Username: {this.props.user.username}</h1>
-        <h1>Cohort Name: {this.props.user.cohort_name}</h1>
+        <h2>Username: {this.props.user.username}</h2>
+        <h2>Cohort: {this.props.user.cohort_name}</h2>
         <button
           className="rejectionButton"
           color="black"
