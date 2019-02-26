@@ -25,10 +25,11 @@ class LatestRejection extends React.Component {
   }
   render() {
     let { aRejection } = this.props;
-    
+
     return (
       <TableRow>
         <CustomTableCell>{aRejection.company}</CustomTableCell>
+          <CustomTableCell>{aRejection.user.username}</CustomTableCell>
         <CustomTableCell>{aRejection.stage_of_rejection}</CustomTableCell>
         <CustomTableCell><button onClick={() => window.open(aRejection.rejection_url)}>
           See Rejection

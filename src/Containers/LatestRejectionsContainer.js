@@ -40,6 +40,7 @@ class LatestRejectionContainer extends React.Component {
             <TableHead>
                 <TableRow>
                     <CustomTableCell>Company</CustomTableCell>
+                      <CustomTableCell>Person</CustomTableCell>
                     <CustomTableCell>Stage of Rejection</CustomTableCell>
                     <CustomTableCell>Image</CustomTableCell>
                     <CustomTableCell>Date</CustomTableCell>
