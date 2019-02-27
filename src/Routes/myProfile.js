@@ -5,7 +5,7 @@ import { withRouter } from "react-router-dom";
 import axios from "axios";
 import { CloudinaryContext } from "cloudinary-react";
 import Modal from 'react-modal';
-import { makeRejection, DeleteUser } from "../Actions/UserActions";
+import { makeRejection, DeleteUser, editPicture } from "../Actions/UserActions";
 import Fade from 'react-reveal/Fade';
 
 class Profile extends React.Component {
@@ -60,7 +60,28 @@ class Profile extends React.Component {
       }
     );
   };
-  renderCloudinary = () => {
+  imageSubmitProfile = () => {
+    var myUploadWidget;
+    myUploadWidget = window.cloudinary.openUploadWidget(
+      {
+        cloudName: "drxxuymxa",
+        uploadPreset: "o8bboijd"
+      },
+      (error, result) => {
+        if (result.info.secure_url) {
+          let copy={...this.state.user}
+          copy.avatar=result.info.secure_url
+          this.props.editPicture(result.info.secure_url,this.props.user.id)
+          this.setState({
+            user:copy
+          })
+        }
+        else{
+        }
+      }
+    );
+  };
+  renderCloudinaryRejection = () => {
     return (
       <CloudinaryContext cloudName="dz1dbcszc" className="signupbuttons">
         <button
@@ -73,6 +94,23 @@ class Profile extends React.Component {
             }
           >
           Upload a picture
+        </button>
+      </CloudinaryContext>
+    );
+  };
+  renderCloudinaryProfile = () => {
+    return (
+      <CloudinaryContext cloudName="dz1dbcszc" className="signupbuttons">
+        <button
+          className="rejectionButton"
+          color="black"
+          id="upload_widget_opener"
+          onClick={(e)=>{
+              e.preventDefault()
+              this.imageSubmitProfile()}
+            }
+          >
+        Edit your profile picture
         </button>
       </CloudinaryContext>
     );
@@ -121,6 +159,8 @@ class Profile extends React.Component {
         </h1>
         <h2>Username: {this.props.user.username}</h2>
         <h2>Cohort: {this.props.user.cohort_name}</h2>
+        {this.renderCloudinaryProfile()}
+        <br />
         <button
           className="rejectionButton"
           color="black"
@@ -176,7 +216,7 @@ class Profile extends React.Component {
             </div>
             <div className = "form-group">
               <p>Note: Do your best to submit a picture without the employers name.</p>
-            {this.renderCloudinary()}
+            {this.renderCloudinaryRejection()}
           </div>
 
 <div className = "form-group">
@@ -218,6 +258,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     deleteUser : (id,history) =>{
       dispatch(DeleteUser(id,history))
+    },
+    editPicture: (url,id)=>{
+      dispatch(editPicture(url,id))
     }
   }
 }

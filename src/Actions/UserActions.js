@@ -83,3 +83,15 @@ export const DeleteUser = (userId,history) =>{
       })
   }
 }
+
+export const editPicture = (url,id)=>{
+  return dispatch => {
+    return axios
+      .patch(`https://leaderboard-backend.herokuapp.com/api/v1/users/${id}`,{
+        avatar:url
+      })
+      .then(json=>{
+        dispatch({type:"SET_USER",payload:json.data})
+      })
+  }
+}
