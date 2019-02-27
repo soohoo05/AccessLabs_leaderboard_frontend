@@ -18,6 +18,8 @@ const CustomTableCell = withStyles(theme => ({
   },
   body: {
     fontSize: 14,
+    textAlign:'left',
+    paddingLeft:'4vw'
   },
 }))(TableCell);
 
@@ -37,7 +39,8 @@ class UserRejectionsContainer extends React.Component {
     ));
 }
     return <div className="ProfileRejectionContainer">
-        <Table>
+
+        <Table >
             <TableHead>
                 <TableRow>
                     <CustomTableCell>Company</CustomTableCell>
@@ -45,10 +48,14 @@ class UserRejectionsContainer extends React.Component {
                     <CustomTableCell>Image</CustomTableCell>
                 </TableRow>
             </TableHead>
+            </Table>
+            <div style={{ overflow: 'auto', height: '50vh' }}>
+            <Table>
             <TableBody>
                 {rejections}
             </TableBody>
         </Table>
+        </div>
     </div>;
 
   }

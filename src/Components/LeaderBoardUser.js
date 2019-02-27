@@ -10,7 +10,11 @@ const CustomTableCell = withStyles(theme => ({
   body: {
     backgroundColor: theme.palette.common.white,
     fontSize: 20,
-    fontFamily: 'Oswald, sans-serif;'
+    fontFamily: 'Oswald, sans-serif;',
+    paddingLeft:'5.5vw'
+
+
+
   },
 }))(TableCell);
 
@@ -34,8 +38,7 @@ class LeaderBoardUser extends React.Component {
                 <CustomTableCell id={classNum} align="left"><img alt="profile" src = {this.props.user.avatar} className = "leaderboard-avatar"/>{this.props.user.username}</CustomTableCell>
                 <CustomTableCell id={classNum} align="left">{this.props.user.cohort_name}</CustomTableCell>
                 <CustomTableCell id={classNum} align="left">{this.props.user.rejections.length}</CustomTableCell>
-                <CustomTableCell id={classNum} align="left"><button onClick={()=>this.changeHistory()}>Profile</button></CustomTableCell>
-
+                <CustomTableCell id={classNum} align="right"><button className = "lb" onClick={()=>this.changeHistory()} >Profile</button></CustomTableCell>
             </TableRow>
       }
 }

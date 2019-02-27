@@ -14,10 +14,13 @@ const CustomTableCell = withStyles(theme => ({
     backgroundColor: "#1eb4e4",
     color: theme.palette.common.white,
     fontSize:20,
-    fontFamily: 'Oswald, sans-serif;'
+    fontFamily: 'Oswald, sans-serif;',
+    textAlign:'center'
   },
   body: {
     fontSize: 14,
+    textAlign:'left',
+    paddingLeft:'4vw'
   },
 }))(TableCell);
 
@@ -46,10 +49,14 @@ class ProfileRejectionContainer extends React.Component {
                     <CustomTableCell>Delete(Y/N)</CustomTableCell>
                 </TableRow>
             </TableHead>
+            </Table>
+            <div style={{ overflow: 'auto', height: '50vh' }}>
+            <Table style={{tableLayout: 'fixed'}}>
             <TableBody>
                 {rejections}
             </TableBody>
         </Table>
+        </div>
     </div>;
 
   }

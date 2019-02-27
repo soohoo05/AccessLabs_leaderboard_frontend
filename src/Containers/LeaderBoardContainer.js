@@ -16,11 +16,14 @@ const CustomTableCell = withStyles(theme => ({
     backgroundColor: "#1eb4e4",
     color: theme.palette.common.white,
     fontSize: 24,
-    fontFamily: 'Oswald, sans-serif;'
-  },
-  body: {
-    fontSize: 14,
-  },
+    fontFamily: 'Oswald, sans-serif;',
+    textAlign:'center'
+},
+body: {
+  fontSize: 14,
+  textAlign:'left',
+
+},
 }))(TableCell);
 
 
@@ -49,7 +52,6 @@ class LeaderBoardContainer extends React.Component {
   render () {
     return (
     <div className = "leaderboard">
-     <Paper>
         <Table >
             <TableHead>
                 <TableRow>
@@ -60,11 +62,14 @@ class LeaderBoardContainer extends React.Component {
                     <CustomTableCell>Profile</CustomTableCell>
                 </TableRow>
             </TableHead>
+</Table>
+<div style={{ overflow: 'auto', height: '75vh' }}>
+<Table>
             <TableBody>
                 {this.state.users.length!==0 ? this.renderLeaderboardRow() : null}
             </TableBody>
         </Table>
-        </Paper>
+</div>
         </div>
 
 

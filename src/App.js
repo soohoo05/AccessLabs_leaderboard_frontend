@@ -43,7 +43,7 @@ class App extends Component {
           <Route exact path="/AddCohort" component={AddCohort}/>
           <Route exact path="/Rejections" component={Rejections}/>
         </Switch>
-        <Footer/>
+        
       </React.Fragment>
 
     );

@@ -303,6 +303,7 @@ text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
         margin-top: 50px;
         margin-bottom: 50px;
         font-family: 'Oswald', sans-serif;
+        text-align: right;
 
     }
     .leaderboard button{
@@ -311,6 +312,7 @@ text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
         width: 100px;
         height: 40px;
         margin: auto;
+        text-align: center;
     }
     .leaderboard button:hover{
         background-color: #9e9e9e;
@@ -449,7 +451,7 @@ text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
 
 }
 footer{
-    position:fixed;
+    position:absolute;
     margin-bottom: 0;
   bottom:0;
   width:100%;
@@ -458,4 +460,7 @@ text-align: left;
 }
 footer p{
     margin-left: 12vw;
+}
+.lb{
+    text-align: right;
 }
