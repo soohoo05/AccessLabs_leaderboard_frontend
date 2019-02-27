@@ -91,7 +91,7 @@ export const editPicture = (url,id)=>{
         avatar:url
       })
       .then(json=>{
-        dispatch({type:"SET_USER",payload:json.data})
+        dispatch({type:"SET_USER",payload:json.data.user})
       })
   }
 }

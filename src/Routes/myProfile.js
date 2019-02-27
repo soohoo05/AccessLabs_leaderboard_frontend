@@ -150,7 +150,7 @@ class Profile extends React.Component {
         <Fade left duration={1000}>
         <div className="left-profile">
         <img
-          src={this.state.user.avatar}
+          src={this.props.user.avatar}
           alt="avatar"
           className="avatarOnProfile"
         />
